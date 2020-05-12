@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>领取课程</title>
+    <!-- 样式的重置 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 底部选择 -->
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="courses borderR">
+            <div class="login-form noMargim">
+                <div class="login-inpt">
+                    <label class="receive">园所地区</label>
+                    <input type="text" id="receiveLocal" value="湖南省&nbsp;长沙市&nbsp岳麓区" readonly>
+                </div>
+                <div class="login-inpt">
+                    <label class="receive">园所名称</label>
+                    <input type="text" id="receiveName" value="云宝贝幼儿园" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="courses active borderR">
+            <div class="login-form noMargim">
+                <div class="login-inpt">
+                    <label class="receive">年级</label>
+                    <input type="text" id="grade" placeholder="请选择宝贝所在的年级" readonly>
+                    <p class="chooseImg"><img src="../image/xuanze.png" alt=""></p>
+                </div>
+                <div class="login-inpt">
+                    <label class="receive">班级</label>
+                    <input type="text" id="classesName" placeholder="请选择宝贝所在的班级" readonly>
+                    <p class="chooseImg"><img src="../image/xuanze.png" alt=""></p>
+                </div>
+                <div class="login-inpt">
+                    <label class="receive">宝贝名字</label>
+                    <input type="text" id="beiName" placeholder="请输入宝贝姓名" >
+                </div>
+                <div class="login-inpt">
+                    <label class="receive">宝贝生日</label>
+                    <input type="text" name='birthday' id="birthday" placeholder="请选择宝贝生日" readonly>
+                    <p class="chooseImg"><img src="../image/xuanze.png" alt=""></p>
+                </div>
+                <div class="login-inpt">
+                    <label class="receive">家长身份</label>
+                    <input type="text" id="parents" placeholder="爸爸/妈妈/其他" readonly>
+                    <p class="chooseImg"><img src="../image/xuanze.png" alt=""></p>
+                </div>
+            </div>
+
+        </div>
+        <button class="login-btn" onclick="nextStep()">下一步</button>
+    </div>
+    <div class="select_box select_box3"></div>
+    <!-- 提示弹框 -->
+    <div class="bc" id="tipBox">
+        <div class="box">
+            <div class="box-tip" id="tipName">您还未填写手机号码！</div>
+            <p class="box-close"><img src="../image/guanbi@2x.png" alt=""></p>
+            <button class="box-btn">确定</button>
+        </div>
+    </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <!-- 底部选择 -->
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/dyselect.js"></script>
+    <!-- 时间选择 -->
+    <script src="../js/datePicker.js"></script>
+    <!-- 公共方法 -->
+    <script src="../js/commom.js"></script>
+    <script>
+        screenChange()//调用设置字体大小方法
+        //调用关闭弹框函数
+        closeBox($('.box-close'), $('#tipBox'))
+        closeBox($('.box-btn'), $('#tipBox'))
+        var dataTwo = ['托班', '学前班', '小班', '中班', '大班'];
+        var ParentsArr = ['爸爸', '妈妈', '其他'];
+        var dataALl = [
+            [{grade:'托班', gradeName:['托一班', '托二班', '托三班']}],
+            [{grade:'学前班', gradeName:['学前一班', '学前二班', '学前三班' ]}],
+            [{grade:'小班', gradeName:['小一班', '小二班', '小三班' ]}],
+            [{grade:'中班', gradeName:['中一班', '中二班', '中三班']}],
+            [{grade:'大班', gradeName:['大一班', '大二班', '中三班']}]
+        ];
+        //如果未选择年级时，是不能选择班级的
+        $('#classesName').on('click',function() {
+            if ($('#grade').val() === '') {
+                showBox($('#tipBox'), $('#tipName'), '请您先输入年级!')
+            }
+        })
+        //点击选择值
+        selectVal($('#grade'), dataTwo, dataALl)
+        selectVal($('#parents'), ParentsArr)
+        function selectVal(ele, data, gradeNameArr) {
+            var dataArr = []
+            ele.on('click', function(){
+                selectButtom(ele, data, function() {
+                    if (ele.attr('id') === 'grade' && gradeNameArr) { //当选择年级的时候
+                        for (var i = 0; i < gradeNameArr.length; i++) {
+                            if ( $('#grade').val() == gradeNameArr[i][0].grade) {
+                                dataArr =  gradeNameArr[i][0].gradeName
+                            }
+                        }
+                        selectVal($('#classesName'), dataArr, dataALl) //当选择年级的时候调用，是二级联动
+                    }     
+                })
+            }) 
+        }
+
+        //调用日期插件
+        var calendar = new datePicker();
+        calendar.init({
+            'trigger': '#birthday', /*按钮选择器，用于触发弹出插件*/
+            'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+            'minDate':'1990-1-1',/*最小日期*/
+            'maxDate':'2100-12-31',/*最大日期*/
+            'onSubmit':function(){/*确认时触发事件*/
+                var theSelectData=calendar.value;
+            },
+            'onClose':function(){/*取消时触发事件*/
+            }
+        });
+	
+        
+        //下一步操作
+        function nextStep () {
+            var gradeVal  = $('#grade').val();
+            var classesNameVal  = $('#classesName').val();
+            var beiNameVal  = $('#beiName').val().trim();
+            var birthdayVal  = $('#birthday').val();
+            var parentsVal  = $('#parents').val();
+            var flag = true;
+            if(gradeVal === '') {
+              showBox($('#tipBox'), $('#tipName'), '请输入年级!');
+              flag = false
+              return
+            } else if(classesNameVal === '') {
+              showBox($('#tipBox'), $('#tipName'), '请输入班级!');
+              flag = false
+              return
+            } 
+            else if(beiNameVal === '') {
+              showBox($('#tipBox'), $('#tipName'), '请输入宝贝名字!!');
+              flag = false
+              return
+            } 
+            else if(birthdayVal === '') {
+              showBox($('#tipBox'), $('#tipName'), '请输入宝贝生日!!');
+              flag = false
+              return
+            } 
+            else if(parentsVal === '') {
+              showBox($('#tipBox'), $('#tipName'), '请输入家长身份!!');
+              flag = false
+              return
+            } 
+            //发送ajax的请求
+            if (flag) {
+                //全部信息已经填完
+                console.log('进行下一步')
+                location.href = 'personalInformation.html'
+            } 
+        }        
+    </script>
+</body>
+
+</html>

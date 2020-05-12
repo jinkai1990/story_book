@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=100%, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玩转课堂</title>
+    <link rel="stylesheet" href="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/public/css/style.css" />
+    <link rel="stylesheet" href="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/wechat/css/kidTeacher.css" />
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/activity/js/common.js"></script>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <style>
+        .panel_h {
+            height: 0.96rem;
+            background: #f1f1f1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 0.25rem;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+        .questionImg {
+            width: 42px;
+            position: fixed;
+            z-index: 1000;
+            top: 45%;
+            right: 20px;
+
+        }
+
+        .questionBox {}
+    </style>
+</head>
+
+<body>
+    <div class="panel_wrapper" id="vue-app">
+        <ul class="panel_h">
+            <li v-for="(item,index) in panels" @click="getList(index)" :class="{active:showPanel === index}">
+                {{item.title}}
+            </li>
+        </ul>
+        <div class="panel_box">
+            <!-- <div v-for="(panel,index) in panels" class="panel" v-show="showPanel === index">
+                <div v-for="item in panel.list" :key = "item.id" class="ind_item" @click="swithPage(item,index)">
+                    <span :class="{imgBg : showPanel != 0}" :style="{backgroundImage:'url('+item.url+')',backgroundSize:'100% 100%'}" >
+                        <img :src="item.url" class="img_shadow" v-if="showPanel === 0"/>
+                    </span>
+                    <h4>{{item.title}}</h4>
+
+                </div>
+            </div> -->
+            <img class='questionImg' @click='questionFn()' src="https://wgscdn.babystory365.com/bangzhu@2x.png" alt="">
+            <div class="panel">
+                <div class="ind_item">
+                    <span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周英语课例解析</h4>
+
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周幼小衔接课例解析</h4>
+
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周音乐课例解析</h4>
+
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周安全课例解析</h4>
+
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周幼儿文化启蒙课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>11月第二周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周幼儿文化启蒙课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>11月第一周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周幼儿文化启蒙课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>10月第五周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335499741.1572335499741_wr2xcjvcqvw7.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周幼儿文化启蒙课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>10月第四周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>10月第三周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>9月第四周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>9月第三周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>9月第二周阅读课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335368550.1572335368550_296dszvgj9xg.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周英语课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335432301.1572335432301_djncem74ovq2.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周幼小衔接课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335253997.1572335253997_fgk16lt50oha.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周音乐课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335345128.1572335345128_ewtfb1k4nlvm.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周安全课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335324238.1572335324238_icc5ebfkxx13.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周礼仪课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335303587.1572335303587_4zbhi5ajvjhk.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周数学课例解析</h4>
+                </div>
+                <div class="ind_item"><span class=""
+                        style="background-image: url(&quot;http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png&quot;); background-size: 100% 100%;"><img
+                            src="http://imgybs.yunbaobei.com/teacherCollegeCover/2019/10/1572335283063.1572335283063_uyklr9rcuvqv.png"
+                            class="img_shadow"></span>
+                    <h4>9月第一周阅读课例解析</h4>
+                </div>
+            </div>
+            <!-- 弹框 -->
+            <div class="questionBox">
+                <div class="box-c">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // var wxOpenId = '${wxOpenId}';
+    var wxOpenId = 'oroEf1FRLBxm6ijntZvU9qjqgKSU'
+    console.log("wxOpenId:" + wxOpenId);
+    Rem();
+
+    var vm = new Vue({
+        el: "#vue-app",
+        //实例中用到的数据
+        data: {
+            showPanel: 0,
+            panels: [{
+                    title: '课堂案例解析',
+                    list: []
+                },
+                {
+                    title: '课堂游戏',
+                    list: []
+                },
+                {
+                    title: '律动手指操',
+                    list: [],
+                }
+                /*,{
+                    title:'父母大学堂',
+                    list:[],
+                },{
+                    title:'多媒体操作指南',
+                    list:[],
+                }
+                 */
+            ],
+        },
+        //实例被创建之后执行代码
+        created: function () {
+            // 在这里获取列表数据
+            this.getList(0)
+        },
+        methods: {
+            // 获取面板列表
+            getList: function (index) {
+                this.showPanel = index;
+                if (this.panels[index].list.length > 0) {
+                    return
+                };
+                if (index === 0) {
+                    this.getLiveCourse()
+                } else if (index === 1) {
+                    this.getDemoVideo()
+                } else if (index === 2) {
+                    this.getKidsSongsList()
+                } else if (index === 3) {
+                    this.getEquipList()
+                }
+            },
+
+            questionFn: function () {
+
+            },
+            //获取课堂案例解析
+            getLiveCourse: function () {
+                var that = this;
+
+                var params = {};
+                params.wxOpenId = wxOpenId;
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "http://192.168.158.250:8282/ybb-h5/fmdxt/getLiveCourseListByOpenId.do?wxOpenId=oroEf1FRLBxm6ijntZvU9qjqgKSU", //注意路径
+                    data: params,
+                    dataType: "json",
+                    success: function (data) {
+                        var msg = data.result;
+                        var code = data.code;
+                        var list = JSON.parse(data.list);
+                        console.log(list);
+                        that.panels[0] = Object.assign({}, that.panels[0], {
+                            list: list
+                        });
+                    },
+                    error: function (data) {
+                        alert("系统繁忙!");
+                    }
+                });
+            },
+            //获取儿歌童谣列表
+            getKidsSongsList: function () {
+                var that = this;
+
+                var params = {};
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "getKidsSongsTypeList.do", //注意路径
+                    data: params,
+                    dataType: "json",
+                    success: function (data) {
+                        var msg = data.result;
+                        var code = data.code;
+                        var list = JSON.parse(data.list);
+                        console.log(list);
+                        that.panels[2] = Object.assign({}, that.panels[2], {
+                            list: list
+                        });
+                    },
+                    error: function (data) {
+                        alert("系统繁忙!");
+                    }
+                });
+
+            },
+            // 获取父母大学堂列表
+            getParentsList: function () {
+                var that = this;
+                var params = {};
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "getParentsTypeList.do", //注意路径
+                    data: params,
+                    dataType: "json",
+                    success: function (data) {
+                        var msg = data.result;
+                        var code = data.code;
+                        var list = JSON.parse(data.list);
+                        console.log(list);
+                        that.panels[2] = Object.assign({}, that.panels[2], {
+                            list: list
+                        });
+                    },
+                    error: function (data) {
+                        alert("系统繁忙!");
+                    }
+                });
+
+            },
+
+
+            //示范课
+            getDemoVideo: function () {
+                var that = this;
+                var params = {};
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "getDemoVideo.do", //注意路径
+                    data: params,
+                    dataType: "json",
+                    success: function (data) {
+                        var msg = data.result;
+                        var code = data.code;
+                        var list = JSON.parse(data.list);
+                        console.log(list);
+                        that.panels[1] = Object.assign({}, that.panels[1], {
+                            list: list
+                        });
+                    },
+                    error: function (data) {
+                        alert("获取设备操作指南，系统繁忙!");
+                    }
+                });
+            },
+            getEquipList: function () {
+                var that = this;
+                var params = {};
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "getEquipTypeList.do", //注意路径
+                    data: params,
+                    dataType: "json",
+                    success: function (data) {
+                        var msg = data.result;
+                        var code = data.code;
+                        var list = JSON.parse(data.list);
+                        console.log(list);
+                        that.panels[3] = Object.assign({}, that.panels[3], {
+                            list: list
+                        });
+                    },
+                    error: function (data) {
+                        alert("获取设备操作指南，系统繁忙!");
+                    }
+                });
+            },
+            //点击跳转事件
+            swithPage: function (info, panelInd) {
+                console.log(info)
+                // 跳转页面，携带视频列表id和名称
+                if (panelInd == "0") {
+                    location.href = './playCourseDetail.html?name=' + encodeURIComponent(info.title) +
+                        '&id=' + info.id + '&openId=' + wxOpenId + '';
+                } else {
+                    location.href = './videoList.html?name=' + encodeURIComponent(info.title) + '&id=' +
+                        info.id + '';
+                }
+
+            }
+        },
+    })
+</script>
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1255246517'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol +
+        "w.cnzz.com/q_stat.php%3Fid%3D1255246517' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</html>

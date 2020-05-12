@@ -1,0 +1,75 @@
+body, 
+html {
+    height: 100%;
+}
+
+.resourse-classes {
+    height: 100%;
+    background: url('../../../images/reourse_class/one.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.clases-type {
+    background-color: #fef9f3;
+    color: #333;
+    font-size: .5rem;
+    margin: 0 .35rem;
+    position: absolute;
+    bottom: .6rem;
+    border-radius:.1rem
+}
+
+.clases-content {
+    padding: 0 .3rem;
+}
+
+.clases-content .c-title {
+    font-size: .36rem;
+    color: #333;
+    font-weight: bold;
+    margin: .4rem 0 .3rem 0;
+}
+
+.clases-content .c-title em {
+    color: #9e4100;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.clases-content .grades li{
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    box-sizing: border-box;
+    border: 1px solid #686a6f;
+    text-align: center;
+    border-radius: 1rem;
+    font-size: .36rem;
+    font-weight: 600;
+    padding: .07rem 0;
+}
+
+.clases-content .grades li.margin-r {
+    margin-right: 0;
+}
+
+.clases-content .grades li.active {
+    background-color: #fea164;
+    color: #fff;
+    border: 1px solid #fea164;
+}
+
+.btn-sure {
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .43rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #fea164;
+    border-radius: .3rem;
+    margin: .8rem 0;
+}

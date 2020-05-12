@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./receive.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="receive">
+        <div class="receive-title-img">
+            <img src="../../../images/good_fe/chatu@3x.png" alt="">
+            <p>课程领取</p>
+        </div>
+        <div class="info">
+            <div class="info-inpt">
+                <div class="login-p">
+                    <div class="login-form">
+                        <div class="login-inpt">
+                            <p class="inpt-img"><img src="../../../images/good_fe/phone@3x.png" alt=""></p>
+                            <input type="text" placeholder="请输入手机号" id="phoneNumber">
+                            <div class="login-code"><span class="send-code" onclick="sendCode()">获取验证码</span><span
+                                    class="time-out">60s</span></div>
+                        </div>
+                        <div class="login-inpt active">
+                            <p class="inpt-img active"><img src="../../../images/good_fe/yanzhengma@3x.png" alt=""></p>
+                            <input type="text" placeholder="请输入验证码" id="code">
+                        </div>
+                        <p class="error-tip" id="tipBox">请填写手机号码</p>
+                    </div>
+                    <div class="btn-s">
+                        <button class="login-btn" id="btnSure">确认</button>
+                        <div class="loading"><img class="loading-img" src="../../../images/good_fe/loading_hui.gif" alt=""></div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script src="../../../js/commom.js"></script>
+    <script>
+        compatibleIOS($('input'));
+        //发送验证码的点击事件
+        function sendCode() {
+            if (!checkEmpty($('#phoneNumber'))) { //输入的手机为空时提示
+                showBox($('#tipBox'), '请您输入手机号码!')
+            } else {
+                if (!checkPhone($('#phoneNumber'))) { //输入的手机有误时的提示
+                    showBox($('#tipBox'), '请您输入正确的手机号码!')
+                } else {
+                    countDown() //倒计时
+                }
+            }
+        }
+
+        //登录操作
+        function loginInfo() {
+           
+            if (!checkEmpty($('#phoneNumber'))) { //输入的手机为空时提示
+                showBox($('#tipBox'), '请您输入手机号码!')
+                return;
+            }
+            if (!checkPhone($('#phoneNumber'))) { //输入的手机有误时的提示
+                showBox($('#tipBox'), '请您输入正确的手机号码!')
+                return;
+            }
+            if (!checkEmpty($('#code'))) { //输入的验证码为空时
+                showBox($('#tipBox'), '请您输入验证码!')
+                return;
+            }
+            $('#tipBox').hide() //提示出现
+
+            $('.loading').fadeIn() //蒙版出现
+            // $('.loading').fadeOut() //蒙版消失
+            //登录成功后的跳转
+            // location.href = 'pages/chooseBady.h  tml'
+
+        }
+        document.getElementById('btnSure').addEventListener('click', btnClick(loginInfo, 200))
+    </script>
+</body>
+
+</html>

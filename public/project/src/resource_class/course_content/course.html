@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./course.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="course">
+        <div class="course-head">
+            <div class="grades">
+                <em>所在年级：<em>小班</em></em><a class="change-grades" onclick="back()">切换</a>
+            </div>
+        </div>
+        <div class="course-content">
+            <div class="course-left">
+                <ul>
+                    <li class="active">阅读</li>
+                    <li>数学</li>
+                    <li>安全</li>
+                    <li>礼仪</li>
+                    <li>音乐</li>
+                </ul>
+            </div>
+            <div class="course-right">
+                <div class="course-c active">
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读这是阅读这是阅读这是阅读</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是阅读</div>
+                    </div>
+                </div>
+
+                <div class="course-c">
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是数学</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是数学</div>
+                    </div>
+                </div>
+
+                <div class="course-c">
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是安全</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是安全</div>
+                    </div>
+                </div>
+
+                <div class="course-c">
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是礼仪</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是礼仪</div>
+                    </div>
+                </div>
+
+                <div class="course-c">
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是音乐</div>
+                    </div>
+                    <div class="course-list clearfix">
+                        <img src="../../../images/reourse_class/tu.png" alt="">
+                        <div class="course-title">这是音乐</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script>
+        //左侧导航栏
+        $('.course-left ul').on('click', 'li', function () {
+            var index = $(this).index()
+            $(this).addClass('active').siblings().removeClass('active')
+            $('.course-c').eq(index).addClass('active').siblings().removeClass('active')
+        })
+
+        $('.course-list').on('click',function() {
+            window.location.href = '../play_video/video.html'
+
+        })
+
+        /**
+         * 返回
+         */
+        function back() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

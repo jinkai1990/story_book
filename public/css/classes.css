@@ -1,0 +1,147 @@
+.classesName {
+    box-sizing: border-box
+}
+
+.classesTip {
+    font-size: .7rem;
+    color: #328BE7;
+    margin-top: .5rem;
+}
+
+.classes-t {
+    margin-top: 1rem
+}
+.tipimg {
+    width: .9rem;
+    float: left;
+    margin-right: .5rem;
+}
+
+.classes-name-type {
+    color: #666
+}
+.classes-name-type span {
+    font-weight: 700
+}
+.classes-name-type button {
+    color: #fff;
+    display: inline-block;
+    margin-left: 1.3rem;
+    background:linear-gradient(0deg,rgba(38,134,234,1),rgba(67,168,239,1));
+    box-shadow:0rem 0rem 1rem 0rem rgba(35,83,238,0.3);
+    border-radius: 1rem;
+    padding: .3rem .6rem;
+    font-size: .8rem
+}
+
+.classes-content ul li {
+    float: left;
+    margin-top: 1rem;
+    margin-right: .5rem;
+    background: #fff;
+    color: #328BE7;
+    border-radius: 1rem;
+    padding: .2rem .8rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #3678D2
+}
+
+.classes-content ul li.active {
+    padding-right: 1.8rem
+}
+
+.reduce-classes {
+    width: 1.2rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    background: rgba(54,120,210,.2);
+    border-radius: 0rem 2rem 2rem 0rem
+}
+
+.reduce-classes img {
+    width: .6rem;
+    margin-left: .3rem;
+    margin-top: .5rem
+}
+
+.noneClasses {
+    display: none
+}
+
+.add-quick-classes {
+    margin-top: 1rem
+}
+
+.add-title {
+    text-align: left;
+    font-size: .6rem;
+    color: #666;
+    display: block !important
+}
+
+.example-name {
+    margin-top: .5rem;
+    margin-bottom: .7rem;
+    display: none;
+    box-sizing: border-box
+}
+
+.example-name.active {
+    display: block
+}
+
+.example-name ul li {
+    width: 30.3%;
+    float: left;
+    color: #888;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: .7rem;
+    margin-right: 3%;
+    position: relative;
+    border-radius: 1rem;
+    border: 1px solid rgba(136, 136, 136, 1)
+}
+
+.example-name ul li:last-child {
+    margin-right: 0
+}
+
+.example-name ul li.checked {
+    background: rgba(51, 140, 231, 0.1);
+    border: 1px solid rgba(50, 139, 231, 1);
+    color: #328be7
+}
+
+.example-name ul li .checked.active::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    background-color: #28c4ff
+}
+
+.add-inpt {
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    height: 40px;
+    padding-left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: .7rem
+}
+
+#reviseSure {
+    display: none
+}
+.bf {
+    background-color: #fff;
+    padding: 1rem;
+}

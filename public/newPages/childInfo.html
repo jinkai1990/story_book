@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>孩子信息</title>
+     <!-- 样式的重置 -->
+     <link rel="stylesheet" href="../css/base.css">
+       <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+</head>
+<body>
+    <div class="main">
+        <div class="classes borderR">
+          <ul class="classes-head clearfix">
+              <li>孩子信息</li>
+              <li  class="w3">家长手机</li>
+              <li class="w2">操作</li>
+          </ul>
+        </div>
+        <div class="classes-ul clearfix">
+            <ul class="classes-content clearfix">
+                <li class="borderR clearfix ">
+                    <div class="classes-list heightA"><p class="classes-name">倪婷</p></div>
+                    <div class="classes-list  w3 heightA overH">17300702345</div>
+                    <div class="classes-list  w2 heightA"><span class="classes-c">修改</span><span class="classes-c delete">删除</span></div>
+                </li>
+               
+            </ul>
+          </div>
+          <div class="btns">
+              <button class="btn-f" onclick="back()">返回</button>
+              <button class="btn-x">新建班级</button>
+          </div>
+    </div>
+      <!-- 提示弹框 -->
+      <div class="bc" id="tipBox">
+            <div class="box">
+                <div class="box-tip" id="tipName">您还未填写手机号码！</div>
+                <p class="box-close"><img src="../image/guanbi@2x.png" alt=""></p>
+                <button class="box-btn">确定</button>
+            </div>
+        </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <script src="../js/commom.js"></script>
+    <script>
+    screenChange()
+    closeBox($('#tipBox .box-close'), $('#tipBox'), function() {})
+    //删除操作
+    $('.classes-c.delete').on('click',function() {
+        showBox($('#tipBox'), $('#tipName'), '确定要删除吗？')
+        closeBox($('#tipBox .box-btn'), $('#tipBox'),function() {
+              //弹框确定按钮的操作
+             
+            })
+    })
+    
+    </script>
+</body>
+</html>

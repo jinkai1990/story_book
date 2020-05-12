@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>资源列表</title>
+    <link rel="stylesheet" href="https://ybbh5.yunbaobei.com/activity/default/css/base.css">
+    <link rel="stylesheet" href="./lessons.css">
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/adaptive.js'></script>
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/font.js'></script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+</head>
+
+<body style="overflow: hidden;">
+    <div id="app" style="max-height: 100%;overflow-y: scroll;" ref="viewBox">
+        <ul class="tab-head" id="tabHead">
+            <li class="tab-head-item" :class="active === index ? 'active' : '' " v-for='(item, index) in tabList'
+                @click='tabChange(index, item.id)' :key='index'>{{item.name}}</li>
+        </ul>
+        <div class="list-c">
+            <ul>
+                <li v-for='(item, index) in listData' :key='index'>
+                    <div class="item-up">
+                        <img :src="item.imgUrl" alt="index">
+                        <p>{{item.title}}</p>
+                    </div>
+                    <div class="item-down">
+
+                    </div>
+
+
+                </li>
+            </ul>
+            <div class="loading" id="loading">
+                <div class="loading-content">
+                    <img class="loading-img" src="image/loading_hui.gif" alt="loading">
+                    <div id="loadingName">正在加载中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            active: 0,
+            listWidth: [],
+            tabList: [{
+                    name: '第一级',
+                    id: '1'
+                },
+                {
+                    name: '第二级',
+                    id: '2'
+                },
+                {
+                    name: '第三级',
+                    id: '3'
+                },
+                {
+                    name: '第四级',
+                    id: '4'
+                },
+                {
+                    name: '第五级',
+                    id: '5'
+                },
+                {
+                    name: '第六级',
+                    id: '6'
+                },
+                {
+                    name: '第七级',
+                    id: '7'
+                },
+                {
+                    name: '第八级',
+                    id: '8'
+                },
+                {
+                    name: '第九级',
+                    id: '9'
+                },
+                {
+                    name: '第十级',
+                    id: '10'
+                }
+            ],
+            listData: [{
+                    imgUrl: './1.png',
+                    title: '《阶梯阅读》第一级',
+                    id: 1
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《艺＋哎呦宝贝》第一级',
+                    id: 2
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《冲动驼与淡定驼》第二 级',
+                    id: 3
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《迪多丫比历险记》第二 级',
+                    id: 4
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《迪多丫比历险记》第二 级',
+                    id: 5
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《迪多丫比历险记》第二 级',
+                    id: 6
+                },
+                {
+                    imgUrl: './1.png',
+                    title: '《阶梯阅读》第一级',
+                    id: 7
+                },
+            ]
+
+
+
+        },
+        created: function () { //用于初始化数据
+        },
+        mounted() {
+            this.box = this.$refs.viewBox;
+            this.box.addEventListener('scroll', this.handleScroll)
+
+
+        },
+        methods: { //写方法函数的地方
+            tabChange(index, id) {
+                this.active = index;
+                //点击是的横向滚动事件
+                if (index > 3) {
+                    $('#tabHead').animate({
+                        scrollLeft: document.body.clientWidth * (index + 1) * 0.1
+                    }, 600)
+                } else {
+                    $('#tabHead').animate({
+                        scrollLeft: 0
+                    }, 300)
+                }
+            },
+
+            handleScroll() {
+
+                var scrollH = this.box.scrollTop // // 滚动高度
+                var offsetHeight = this.box.offsetHeight; // 文档高度
+            
+                var oTop = this.box.scrollHeight //整个高度
+
+                if(scrollH + offsetHeight >= oTop) {
+                    console.log('到底了')
+
+                }
+            }
+
+        },
+
+
+    })
+</script>
+
+</html>

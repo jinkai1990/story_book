@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./course.css">
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+    <title>课程解析</title>
+</head>
+
+<body>
+    <div id='app'>
+        <ul class="tab-head" id="tabHead">
+            <li class="tab-head-item" :class="active === index ? 'active' : '' " v-for='(item, index) in tabList'
+                @click='tabChange(index,item.id)' :key='index'>{{item.name}}</li>
+        </ul>
+        <div class="list-c">
+            <ul>
+                <li v-for='(item, index) in listData' :key='index'>
+                    <img :src="item.imgSrc" alt="index">
+                    <p>{{item.title}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="question" @click='questionClick()'>
+            <img src="../../images/course/xuanfu@3x.png" alt="">
+        </div>
+        <div class="box-f" v-if='boxShow'>
+            <div class="box">
+                <div class="box-c">
+                    <p>本页只展示您报名的课程，您当前已报名的课程<span class="box-k">阅读第三级课程</span>，如需修改请点击"修改"按钮进行修改</p>
+                    <div class="box-btn">
+                        <button class="btn" @click='konwBtn'>我知道了</button><button class="btn active">修改</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            tabList: [{
+                    name: '阅读',
+                    id: 1
+                },
+                {
+                    name: '数学',
+                    id: 2
+                },
+                {
+                    name: '英语',
+                    id: 3
+                },
+                {
+                    name: '礼仪',
+                    id: 4
+                },
+                {
+                    name: '幼小衔接',
+                    id: 5
+                },
+                {
+                    name: '幼儿文焕启蒙',
+                    id: 6
+                },
+                {
+                    name: '其他',
+                    id: 7
+                },
+                {
+                    name: '其他',
+                    id: 8
+                },
+                {
+                    name: '宝宝巴士',
+                    id: 9
+                },
+                {
+                    name: '儿童乐园',
+                    id: 10
+                },
+            ],
+            active: 0, //初始化为0
+            listData: [{
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 1
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 2
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 3
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 4
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 5
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 6
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 7
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 8
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 9
+                },
+                {
+                    imgSrc: './1.jpg',
+                    title: '阅读1-1《入园歌》',
+                    id: 10
+                },
+            ],
+            boxShow: false
+
+        },
+        created: function () { //用于初始化数据
+            // var url = '' //初始化数据，传入第一个tab数据接口
+            // getData(url)
+        },
+        mounted() {
+
+
+        },
+        methods: { //写方法函数的地方
+            //index是导航栏索引，id是对应的每个tab的id
+            tabChange: function (index, id) { //导航栏的点击事件
+                this.active = index;
+                // var url = ''; //猜测url地址是根据id的化而变化的
+                // getData(url)
+
+                //点击是的横向滚动事件
+                if (index > 4) {
+                    $('#tabHead').animate({
+                        scrollLeft: document.body.clientWidth
+                    }, 600)
+                }
+
+                if (index === 4) {
+                    $('#tabHead').animate({
+                        scrollLeft: 0
+                    }, 600)
+                }
+            },
+            //获取数据
+            getData(url) {
+                $.ajax({
+                    url: url, // url action是方法的名称
+                    cache: false,
+                    data: data,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function (request) {},
+                    success: function (data) {
+                        var dataD = data.data //获取后台传的data值
+                        var dataList = [];
+                        for (var i = 0; i < dataD.length; i++) {
+                            var listObj = {};
+                            listObj.imgSrc = dataD[i].imgSrc;
+                            listObj.title = dataD[i].title;
+                            listObj.id = dataD[i].id;
+                            dataList.push(listObj)
+                        }
+                        this.listData = dataList; //将接口的数据赋值给listData,改变列表数据
+                    },
+                    error: function (msg) {
+
+                    }
+                });
+            },
+
+            //问号点击事件
+            questionClick: function () {
+                this.boxShow = true;
+            },
+            //弹框我知道了点击事件
+            konwBtn:function() {
+                this.boxShow = false;
+            }
+
+
+
+        }
+
+
+
+
+    })
+</script>
+
+</html>

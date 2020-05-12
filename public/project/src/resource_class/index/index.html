@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>家庭资源</title>
+</head>
+<body>
+    <div class="resourse-classes">
+        <div class="clases-type">
+            <div class="clases-content">
+                <p class="c-title">请选择孩子的年级，免费领取<em>在线课程</em></p>
+                <ul class="grades clearfix">
+                    <li class="active">小班</li>
+                    <li>中班</li>
+                    <li class="margin-r">大班</li>
+                    <li>学前班</li>
+                </ul>
+                <button class="btn-sure" id="btnSure">确认</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script>
+        //选择班级
+        $('.grades li').on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+        //防止多次触发按钮事件，防抖
+        function btnClick(fn, wait) {
+            var time = null;
+            return function () {
+                clearTimeout(time)
+                time = setTimeout(function() {
+                    fn.apply(this, arguments) //确保dou函数的this（上下文还是div）
+                }, wait);
+            }
+        }
+       //按钮点击操作
+        function doSome() {
+           window.location.href = '../course_content/course.html'
+        }
+
+        document.getElementById('btnSure').addEventListener('click', btnClick(doSome, 200))
+    </script>
+</body>
+
+</html>

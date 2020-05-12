@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+     <!-- 样式的重置 -->
+    <link rel="stylesheet" href="../css/base.css">
+      <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+    
+</head>
+<body>
+    <div class="main">
+        <div class="personal borderR">
+            <div class="personal-img">
+              <p class="head-portrait"><img src="../image/touxiang.png" alt=""></p>
+            </div>
+            <p>张三</p>
+            <p style="color: #888;margin-top:5px">4岁3个月</p>
+        </div>
+        <div class="courses active borderR">
+                <div class="login-form noMargim">
+                    <div class="login-inpt">
+                        <label class="receive">年级</label>
+                        <p class="fr">小太阳幼儿园</p>
+                    </div>
+                    <div class="login-inpt">
+                        <label class="receive">班级</label>
+                        <p class="fr">托班</p>
+                    </div>
+                    <div class="login-inpt">
+                        <label class="receive">宝贝名字</label>
+                        <p class="fr">战三</p>
+                    </div>
+                    <div class="login-inpt">
+                        <label class="receive">宝贝生日</label>
+                        <p class="fr">2015-03-06</p>
+                    </div>
+                    <div class="login-inpt">
+                        <label class="receive">家长身份</label>
+                        <p class="fr">妈妈</p>
+                    </div>
+                </div>
+            </div>
+            <button class="login-btn active" onclick="editInfo()">编辑资料</button>
+           <div class="logout-btn"><button  onclick="logoutBtn()">退出登录</button></div> 
+    </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+     <!-- 公共方法 -->
+     <script src="../js/commom.js"></script>
+     <script>
+      screenChange()//调用设置字体大小方法
+
+      function logoutBtn () {}
+      //编辑资料
+      function editInfo() {
+        location.href = 'editFile.html'
+
+      }
+     </script>
+</body>
+</html>

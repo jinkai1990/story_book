@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./commom.css">
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+    <title>云宝贝</title>
+</head>
+<body>
+    <div class="drift">
+        <div class="drift-f">
+            <div class="drift-title">
+                <img src="../../images/book/biaoti@3x.png" alt="">
+                <p>全国孩子免费上</p>
+            </div>
+            <div class="drift-content">
+                <img class="chatu" src="../../images/book/chatu@3x.png" alt="2">
+                <p>1、由PECERA认证的在线亲子绘本阅读课程</p>
+                <p>2、送给全国幼儿园小朋友共10万个学习名额</p>
+                <p>3、四大环节：包含互动阅读、脑筋转转转、 表达力Max、阅读竞技场，让宝贝玩中学</p>
+                <div class="recive-type">
+                    <div class="recive-btn" onclick="reciveCourse('one')">免费领取2~3岁课程</div>
+                    <div class="recive-btn active" onclick="reciveCourse('two')">免费领取4~6岁课程</div>
+                </div>
+                <div class="recive-s">
+                    <img src="../../images/book/quesheng@3x.png" alt="1">
+                    <p>您已成功领取课程</p>
+                </div>
+
+                <p class="share-tip">点击右上角“…”，将课程分享给好友</p>
+            </div>
+        </div>
+        <div  id="boxT">
+            <div class="box-b">
+                <div class="box-c">
+                    <div class="box-title">
+                        <p id="courseType">确定要领取2~3岁课程吗？</p>
+                        <p>领取后将不能更改</p>
+                    </div>
+                    <div>
+                        <button class="b-btn" onclick="boxCancel()">取消</button><button class="b-btn sure"
+                            onclick="boxSure()">确认</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script>
+        var urlData = getRequest(location.href);
+        var typeCourse = null;
+        if (urlData.msg === 'allow') {
+            $('.recive-type').show()
+            $('.recive-s').hide()
+
+        } else {
+            $('.recive-type').hide()
+            $('.recive-s').show()
+        }
+        //课程的领取
+        function reciveCourse(type) {
+            $('#boxT').fadeIn()
+            if (type === 'one') {
+                typeCourse = 1
+                $('#courseType').html('确定要领取2~3岁课程吗？')
+            } else {
+                $('#courseType').html('确定要领取4~6岁课程吗？')
+                typeCourse = 2
+            }
+        }
+        //弹框取消
+        function boxCancel() {
+            $('#boxT').fadeOut()
+        }
+        //弹框确定
+        function boxSure() {
+            var classId = null;
+            if ( typeCourse === 1) {
+                classId = 668_3
+            } else {
+                classId = 668_2
+            }
+            var data = {
+                classIdTarget: classId,
+                unionId: urlData.unionId
+            }
+            $.ajax({
+                url: 'https://wechat.v2.babystory365.com/memberManager/confirmJoinActivity', // url action是方法的名称
+                cache: false,
+                data: data,
+                type: 'POST',
+                dataType: 'JSON',
+                // contentType: "application/json; charset=utf-8",
+                crossDomain: true, 
+                beforeSend: function (request) {},
+                success: function (data) {
+                  if(data.res_code === 200) {
+                      window.location.href = './recive-success.html'
+                  }
+
+                },
+                error: function (msg) {
+
+                }
+            });
+        }
+
+        //获取url后面的参数
+        function getRequest(url) {
+            var i = url.indexOf('?');
+            if (i === -1) {
+                return {
+                    msg: 'allow',
+                    unionId: 668_3
+                }
+            };
+            var querystr = url.substr(i + 1);
+            var arr1 = querystr.split('&');
+            var arr2 = new Object();
+            for (i in arr1) {
+                var t = arr1[i].split('=');
+                arr2[t[0]] = t[1];
+            }
+            return arr2;;
+        }
+    </script>
+
+</html>

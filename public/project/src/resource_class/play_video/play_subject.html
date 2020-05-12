@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./video.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>专题内容</title>
+</head>
+
+<body>
+    <div class="video-m active">
+        <div class="video-source active">
+            <img src="./1.png" alt="1">
+        </div>
+        <div class="video-title active">
+            小青菜去哪里了
+        </div>
+       
+    </div>
+    <div class="subject-type">
+        <ul>
+            <li class="type-list">
+                <p>小青菜去哪里了小青菜去哪里了小青菜去哪里了 小青菜去哪里了</p>
+                <div class="video-t active">
+                    <div class="list-t">课程资源</div>
+                    <div class="play-num">
+                        <img src="./watch.png" class="watch-img" alt="1">
+                        <em class="watch-number">2323</em>
+                    </div>
+
+                </div>
+            </li>
+            <li class="type-list">
+                <p> 小青菜去哪里了小青菜去哪里了小青菜去哪里了 小青菜去哪里 </p>
+                <div class="video-t active">
+                    <div class="list-t typeTwo">真人教学</div>
+                    <div class="play-num">
+                        <img src="./watch.png"  class="watch-img" alt="2">
+                        <em class="watch-number">2323</em>
+                    </div>
+                </div>
+            </li>
+            <li class="type-list">
+                <p>小青菜去哪里了小青菜去哪里了小青菜去哪里了 小青菜去哪里了</p>
+                <div class="video-t active">
+                    <div class="list-t typeThree">亲子活动</div>
+                    <div class="play-num">
+                        <img src="./watch.png"  class="watch-img" alt="3">
+                        <em class="watch-number">2323</em>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script>
+        $('.share-video').on('click', function (e) {
+            e.stopPropagation()
+            $('.share-w').fadeIn()
+        })
+
+        $(document).on('click', function () {
+            $('.share-w').fadeOut()
+        })
+
+        var str = '1.感知并理解故事内容。2.理解故事中“爱心桥”的含义，树立主动帮助他人的意识。3.逐步形成团结协作的意识。'
+        var strArr = str.split('。') //将字符串变成数组
+        strArr.pop() //删除数组中的最后一个
+        for (var i = 0; i < strArr.length; i++) {
+            var strp = $('<p></p>');
+            $('#courseTitle').append(strp) //将创建的p添加到courseTitle中
+            strp.html(strArr[i]) //给p的hmtl赋值
+        }
+
+        var consts =
+            '  桥是跨越障碍的美丽象征。故事《爱心桥》描绘了小动物们      用身体搭桥，帮小熊过河的温馨场景。“爱心桥”象征了大家 心中那座团结友爱、互帮互助的精神桥梁，增进了朋友间的 友谊。本主题活动可以培养幼儿团结协作的精神，增强幼的人际交往能力。                    ' +
+
+            '儿歌《外婆桥》中的那座“外婆桥”搭建了 祖孙之间的情感桥梁，促进了祖孙之间的亲情沟通。儿歌可 以让幼儿感受到去外婆家的喜悦之情。'
+        $('#courseIn').html(trim(consts))
+        //去掉所有空格;
+        function trim(s) {
+            return s.replace(/\s*/g, "");
+        }
+
+
+        $('.course-title').on('click', '.title-c', function () {
+            var index = $(this).index()
+            $(this).addClass('active').siblings().removeClass('active')
+            $('.course-c').eq(index).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+body,
+html {
+    height: 100%;
+}
+
+.yun-down {
+    height: 100%;
+}
+
+.yun-down .down-title {
+    height: 6%;
+    background: #3ba7d7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yun-down .down-content {
+    height: 94%;
+    background: #54beeb;
+    text-align: center;
+    color: #fff;
+    font-size: .37rem;
+}
+
+.down-title .title-img {
+    width: 3.4rem;
+}
+
+.down-content img {
+    margin: 0 auto 1.4rem;
+    width: 5rem;
+}
+
+.down-content img:last-child {
+    margin-bottom: 0;
+}
+
+.down-content .down-w {
+    padding: 1.5rem 0;
+    box-sizing: border-box;
+}
+
+.down-content .down-w strong {
+    display: inline-block;
+}
+
+.down-content .down-w strong:first-child {
+    margin-right: .2rem
+}
+
+.down-content .down-w strong:last-child {
+    margin-left: .2rem;
+}

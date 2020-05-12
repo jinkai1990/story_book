@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://ybbh5.yunbaobei.com/activity/default/css/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>宝贝故事</title>
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+</head>
+
+<body>
+    <div class="bady-page">
+        <div class="bady-header">
+            <div class="picture-book">
+                <img class="title-img" src="../../images/baday_page/biaoti_1@2x.png" alt="1">
+                <img class="title-name" src="../../images/baday_page/jiaojiao@2x.png" alt="2">
+                <div class="book-list">
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=13098"> <img src="../../images/baday_page/1@2x.png" alt="3"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=13103"><img src="../../images/baday_page/2@2x.png" alt="4"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=13101"><img src="../../images/baday_page/3@2x.png" alt="5"></a>
+                </div>
+
+            </div>
+            <div class="picture-book two">
+                <img class="title-name" src="../../images/baday_page/jiaojiao@2x.png" alt="2">
+                <div class="book-list">
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=20881"> <img src="../../images/baday_page/4@2x.png" alt="3"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=20887"><img src="../../images/baday_page/5@2x.png" alt="4"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=20879"><img src="../../images/baday_page/6@2x.png" alt="5"></a>
+                </div>
+            </div>
+            <div class="picture-book three">
+                <img class="title-name" src="../../images/baday_page/jiaojiao@2x.png" alt="2">
+                <div class="book-list">
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=21530"> <img src="../../images/baday_page/7@2x.png" alt="3"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=21527"><img src="../../images/baday_page/8@2x.png" alt="4"></a>
+                    <a href="https://operator.v2.babystory365.com/wx/playPage?bookId=21528"><img src="../../images/baday_page/9@2x.png" alt="5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="bady-content">
+            <img src="../../images/baday_page/2.png" alt="6">
+            <img src="../../images/baday_page/3.png" alt="7">
+        </div>
+        <div class="bady-over">
+            <div class="over-btn">
+                <div class="btn down-app"><a href="https://a.app.qq.com/o/simple.jsp?pkgname=com.talkweb.babystorys">下载app</a></div>
+                <div class="btn free"><a href="https://w.url.cn/s/A4C7rXE">免费体验30天</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../../js/public.js"></script>
+    <script>
+        const shareObj = {
+            title: '宝贝故事送会员啦~',
+            desc: '3000+绘本故事免费读，还有孩子学习启蒙计划，等您来领。',
+            imgUrl: 'https://wgscdn.babystory365.com/bady/huiyuan.jpg'
+        }
+
+        //调用微信分享
+        wxinit(shareObj.title, shareObj.desc, shareObj.imgUrl);
+
+        //调用滚动事件
+        scrollHeight($('.bady-over'), 1000) 
+    </script>
+</body>
+
+</html>

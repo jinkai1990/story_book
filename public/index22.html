@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>家长登录</title>
+    <!-- 样式的重置 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="css/commom.css">
+
+</head>
+<body>
+    <div class="main">
+        <div class="courses coursesTwo" >
+            <div class='courses-step clearfix'>
+                <p class="step-r active">1<span class="step-n active">填写班级信息</span></p>
+                <p class="step-l"></p>
+                <p class="step-r">2<span class="step-n">填写班级名称</span></p>
+                <p class="step-l"></p>
+                <p class="step-r">3<span class="step-n">开通课程</span></p>
+            </div>
+            
+        </div>
+        <div class="classes borderR active">
+            <div class="login-p">
+                    <div class="choose-title active">
+                            <span class="flag-l"></span>
+                            <span class="flag-r">园所联系人</span>
+                        </div>
+                    <div class="login-form active">
+                    <div class="login-inpt">
+                        <p class="inpt-img" ><img src="image/phone@2x.png" alt=""></p>
+                        <input type="text" placeholder="请输入手机号" id="phoneNumber">
+                    </div>
+                    <div class="login-inpt active">
+                        <p class="inpt-img active"><img src="image/yanzhengma@2x.png" alt=""></p>
+                        <input type="text" placeholder="请输入验证码" id="code">
+                        <div class="login-code" ><span class="send-code" onclick="sendCode()" >发送验证码</span><span class="time-out"  >60s</span></div>
+                    </div>
+                    <div class="login-inpt active">
+                            <p class="inpt-img active"><img src="image/xingming@2x.png" alt=""></p>
+                            <input type="text" placeholder="请输入姓名" id="leadingName">
+                        </div>
+                        
+                    </div>
+                  
+            </div>
+        </div>
+        <div class="classes borderR active">
+                <div class="login-p">
+                        <div class="choose-title active">
+                            <span class="flag-l"></span>
+                            <span class="flag-r">园所联系人</span>
+                        </div>
+                        <div class="login-form active noMargim">
+                        <div class="login-inpt">
+                            <label class="receive">选择省份</label>
+                            <select name="" id="selectS">
+                                <option value="1">湖北</option>
+                                <option value="1">湖北</option>
+                            </select>
+                            <p class="chooseImg"><img src="image/xuanze.png" alt=""></p>
+                        </div>
+                        <div class="login-inpt">
+                            <label class="receive">选择市/区</label>
+                            <select name="" id="selectS">
+                                <option value="1">湖北</option>
+                                <option value="1">湖北</option>
+                            </select>
+                            <p class="chooseImg"><img src="image/xuanze.png" alt=""></p>
+                        </div>
+                        <div class="login-inpt">
+                            <label class="receive">选择县/镇</label>
+                            <select name="" id="selectZ">
+                                <option value="1">湖北</option>
+                                <option value="1">湖北</option>
+                            </select>
+                            <p class="chooseImg"><img src="image/xuanze.png" alt=""></p>
+                        </div>
+                        <div class="login-inpt">
+                            <label class="receive">园所名称</label>
+                            <input type="text" placeholder="请输入园所名字" id="nameY">
+                           
+                        </div>
+                        <!-- <div class="login-inpt">
+                            <label class="receive">负责人</label>
+                            <input type="text" placeholder="请输入园长或对接人名称" id="leadingName">
+                        </div> -->
+                        </div>
+                      
+                </div>
+            </div>
+        <button class="login-btn" onclick="loginInfo()">下一步</button>
+    </div>
+     <!-- 提示弹框 -->
+    <div class="bc" id="tipBox">
+        <div class="box">
+            <div class="box-tip" id="tipName">您还未填写手机号码！</div>
+            <p class="box-close"><img src="image/guanbi@2x.png" alt=""></p>
+            <button class="box-btn">确定</button>
+        </div>
+    </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <script src="js/commom.js"></script>
+    <script>
+   
+        //调用地区插件
+        screenChange()//调用设置字体大小方法
+        compatibleIOS($('input'));
+        //调用关闭弹框函数
+        closeBox($('.box-close'), $('#tipBox'))
+        closeBox($('.box-btn'), $('#tipBox'))
+    
+    //发送验证码的点击事件
+    function sendCode() {
+        
+        if (!checkEmpty($('#phoneNumber'))) { //输入的手机为空时提示
+            showBox($('#tipBox'), $('#tipName'), '请您输入手机号码!')
+        } else {
+            if (!checkPhone($('#phoneNumber'))) { //输入的手机有误时的提示
+                showBox($('#tipBox'), $('#tipName'), '请您输入正确的手机号码!')
+            } else {
+                countDown ()//倒计时
+            }
+        }
+    }
+
+    //登录操作
+    function loginInfo() {
+        location.href = 'newPages/classesInfo.html'
+        if (checkEmpty($('#phoneNumber')) === '') { //输入的手机为空时提示
+            showBox($('#tipBox'), $('#tipName'), '请您输入手机号码!')
+            return;
+        }  
+        if (!checkPhone($('#phoneNumber'))) { //输入的手机有误时的提示
+            showBox($('#tipBox'), $('#tipName'), '请您输入正确的手机号码!')
+            return;
+        } 
+        if (!checkEmpty($('#code'))) { //输入的验证码为空时
+            showBox($('#tipBox'), $('#tipName'), '请您输入验证码!')
+            return;
+        } 
+        if (!checkEmpty($('#loacl'))) { //选择的地区为空
+            showBox($('#tipBox'), $('#tipName'), '请您选择园所所在地!')
+            return;
+        } 
+        if (!checkEmpty($('#nameY'))) { //输入园所名字为空
+            showBox($('#tipBox'), $('#tipName'), '请您输入园所名称!')
+            return;
+        } 
+        if (!checkEmpty($('#leadingName'))) { //输入负责人为空
+            showBox($('#tipBox'), $('#tipName'), '请您输入名字!')
+            return;
+        } 
+
+
+         //登录成功后的跳转
+        // location.href = 'pages/ediFile.html'
+    }
+   
+    </script>
+</body>
+</html>

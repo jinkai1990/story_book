@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑老师</title>
+    <!-- 样式的重置 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 底部选择 -->
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="classes borderR">
+            <div class="e-classes">
+                <label class="receive">老师姓名</label>
+                <input type="text" value="托班二班">
+            </div>
+
+        </div>
+        <div class="classes borderR active">
+            <div class="e-classes">
+                <label class="receive">所属年级</label>
+                <input type="text" id="grade" value="托班二班" readonly>
+                <p class="img-f"><img src="../image/xuanze@2x.png" alt=""></p>
+            </div>
+        </div>
+        <div class="classes borderR active">
+            <div class="e-classes">
+                <label class="receive">所属班级</label>
+                <input type="text" value="托班二班">
+            </div>
+
+        </div>
+        <div class="classes borderR active">
+            <div class="e-classes">
+                <label class="receive">手机号</label>
+                <input type="text" class="noEdit" value="17632323232(已修改)" readonly>
+            </div>
+
+        </div>
+        <div class="btns">
+            <button class="btn-f" onclick="back()">返回</button>
+            <button class="btn-x">新建班级</button>
+        </div>
+    </div>
+    <div class="select_box select_box3"></div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <!-- 底部选择 -->
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/dyselect.js"></script>
+    <!-- 时间选择 -->
+    <script src="../js/datePicker.js"></script>
+    <!-- 公共方法 -->
+    <script src="../js/commom.js"></script>
+    <script>
+        screenChange() //调用设置字体大小方法
+        var dataTwo = ['托班', '学前班', '小班', '中班', '大班'];
+        //点击选择值
+        selectVal($('#grade'), dataTwo)
+
+        function selectVal(ele, data) {
+            ele.on('click', function () {
+                selectButtom(ele, data)
+            })
+        }
+    </script>
+
+</body>
+
+</html>

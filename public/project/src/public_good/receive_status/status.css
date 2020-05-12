@@ -1,0 +1,81 @@
+body,
+html {
+    height: 100%;
+}
+
+.status {
+    height: 100%;
+    background: url('../../../images/good_fe/beijing@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+
+
+.receive-s {
+    position: relative;
+    top: 2.1rem;
+    width: 6.78rem;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 .08rem .46rem 0px rgba(0, 0, 0, 0.08);
+    border-radius: .4rem;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1.54rem 0 .57rem 0;
+}
+
+.logo-img {
+    height: 1.92rem;
+    width: 1.92rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -.95rem;
+    top: -.95rem;
+}
+
+.logo-img img {
+    width: 100%;
+}
+
+.status-title {
+    font-size: .42rem;
+    font-weight: bold;
+    margin-bottom: .54rem;
+    color: #444;
+}
+
+.create-wx {
+    width: 3.45rem;
+    height: 3.45rem;
+    margin: 0 auto .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-wx img {
+    width: 100%;
+}
+
+.status-tip {
+    font-size: .3rem;
+    color: #888;
+}
+
+.receive-s.active {
+    top: 1.15rem;
+    height: 9.1rem;
+    padding-top: 2.45rem;
+    font-size: .3rem;
+    color: #888;
+}
+
+.fail-img {
+    width: 3.18rem;
+    margin: 0 auto .5rem;
+
+}
+
+.retry {
+    color: #5D91F1;
+}

@@ -1,0 +1,214 @@
+body,
+html {
+    height: 100%;
+    background-image: linear-gradient(#fc7f73, #fe9d56);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#app,
+.double-twelve {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.member {
+    width: 7.04rem;
+    height: 4.1rem;
+    margin: -1.55rem auto 0;
+
+    position: relative;
+
+    background: url('../../images/payTwo/one.png') no-repeat center center;
+    background-size: 100% 100%;
+    color: #FE4640;
+
+    font-size: .375rem;
+    text-align: center;
+}
+
+.count-down {
+    color: #FE4640;
+    font-weight: bold;
+}
+
+.count-down .count-w {
+    color: #999;
+    font-weight: bold;
+}
+
+.double-twelve img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.member-price {
+    padding-top: .2rem;
+    font-size: .35rem;
+    text-align: center;
+  
+}
+
+.member-price p {
+    font-weight: bold;
+}
+
+.member .btn-img {
+    width: 3rem;
+    height: .85rem;
+    margin: .4rem .1rem;
+}
+
+@keyframes ds_Btn {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(1.08, 1.08);
+    }
+
+    50% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.count-down-time {
+    width: .47rem;
+    height: .43rem;
+    line-height: .43rem;
+    border-radius: .1rem;
+    margin: 0 .1rem;
+   
+    font-size: .4rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.count-down-time.active {
+    color: #fff;
+    font-size: .2rem;
+
+    background-color: #F57048;
+}
+
+.footer-f {
+    width: 100%;
+    height: 1.17rem;
+
+    position: fixed;
+    bottom: 0;
+
+    background: #fff;
+    box-shadow: 0 -.04rem .1rem 0 rgba(20, 46, 1, 0.13);
+}
+
+.footer-f .footer-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    font-size: .25rem;
+
+    color: #F44949;
+}
+
+.footer-c .footer-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    flex: 2;
+}
+
+.footer-c .footer-r {
+    flex: 1;
+}
+
+.footer-r {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-r button {
+    width: 1.65rem;
+    height: .52rem;
+    line-height: .52rem;
+    border-radius: .1rem;
+
+    background: rgba(244, 73, 73, 1);
+    color: #EFF0B9;
+
+    font-size: .24rem;
+    box-shadow: .03rem .03rem .03rem .02rem rgba(20,46,1,0.13);
+
+    animation: ds_Btn .5s ease-in-out infinite;
+    -webkit-animation: ds_Btn .5s ease-in-out infinite;
+}
+
+.btn-c {
+    display: flex;
+    justify-content: center;
+}
+
+.active-rule {
+    position: fixed;
+    top: .4rem;
+    right: .3rem;
+    background-color: #f8bb8f;
+    color: #fff;
+    font-size: .25rem;
+    text-align: center;
+    padding: .07rem .3rem;
+    z-index: 1000;
+    border-radius: .15rem;
+}
+
+.rule-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 99999;
+}
+.rule-box .box {
+    background: #fff;
+    padding: .3rem;
+    width: 80%;
+    font-size: .3rem;
+    font-weight: 400;
+    margin: .3rem auto 0;
+    box-sizing: border-box;
+    border-radius: .2rem;
+    position: relative;
+}
+
+.rule-box .box .box-content {
+    border: 4px solid #fcbc14;
+    padding: .3rem;
+}
+
+.rule-box .box .box-content p {
+    margin: .15rem 0;
+}
+
+.rule-box .box h1 {
+    text-align: center;
+    font-size: .4rem;
+}
+
+.rule-box .close-img {
+    width: .8rem;
+   margin: .4rem auto 0;
+}

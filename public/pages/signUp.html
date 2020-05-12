@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <!-- 样式的重置 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+    <style>
+    
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="courses borderR clearfix noP">
+            <div class="analyze clearfix">
+                <p class="analyze-w">每周为您推送课堂案例解析</p>
+                <p class="analyze-x">助您轻松玩转课堂教学</p>
+                <img class="analyze-i" src="../image/chatu@2x.png" alt="">
+            </div>
+        </div>
+        <div class="courses borderR active" style="padding:1rem">
+            <div class="choose-title">
+                <span class="flag-l"></span>
+                <span class="flag-r">选择您关注的课程（可多选）</span>
+            </div>
+            <ul class="choose-name clearfix active" id="chooseK">
+                <li class="active">幼小衔接</li>
+                <li >小白</li>
+                <li class="mr">张三</li>
+                <li >李四</li>
+                <li >李四</li>
+                <li class="mr">李四</li>
+            </ul>
+        </div>
+        <div class="courses borderR active" style="padding:1rem">
+                <div class="choose-title">
+                    <span class="flag-l"></span>
+                    <span class="flag-r">选择您关注的级别</span>
+                </div>
+                <ul class="choose-name clearfix active activeBC" id="chooseJ">
+                    <li class="active">1级</li>
+                    <li >2级</li>
+                    <li class="mr">3级</li>
+                    <li >4级</li>
+                    <li >5级</li>
+                    <li class="mr">6级</li>
+                </ul>
+            </div>
+            <div class="courses borderR active" style="padding:1rem">
+                <div class="choose-title">
+                    <span class="flag-l"></span>
+                    <span class="flag-r">选择您关注的级别</span>
+                </div>
+                <ul class="choose-name clearfix active activeBC" id="chooseJ">
+                    <li class="active">1级</li>
+                    <li >2级</li>
+                    <li class="mr">3级</li>
+                    <li >4级</li>
+                    <li >5级</li>
+                    <li class="mr">6级</li>
+                </ul>
+            </div>
+        <button class="login-btn" onclick="sureBtn()">确认</button>
+    </div>   
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+   
+    <!-- 公共方法 -->
+    <script src="../js/commom.js"></script>
+    <script>
+        screenChange()//调用设置字体大小方法
+       //确定按钮实践
+        function sureBtn() {
+
+        }
+        //选择您关注的课程
+        $('#chooseK').on('click','li', function() {
+          if ($(this).hasClass('active')) {
+            $(this).removeClass('active')
+          } else {
+            $(this).addClass('active')
+          }
+        })
+        //选择您关注的课程级别
+        $('#chooseJ').on('click','li', function() {
+          $(this).addClass('active').siblings().removeClass('active')
+        })
+        $('body').scrollTop( $('body')[0].scrollHeight);
+
+
+           
+    </script>
+</body>
+
+</html>

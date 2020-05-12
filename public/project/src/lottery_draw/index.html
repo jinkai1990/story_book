@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>幸运大抽奖</title>
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+</head>
+
+<body>
+    <div class="draw">
+        <div class="draw-header">
+            <img class="title-img" src="../../images/lottery_draw/title@3x.png" alt="header">
+        </div>
+        <div class="draw-content">
+            <div class="draw-chance">
+                <p>还有<em class="draw-nums">1</em>机会</p>
+            </div>
+            <div class="draw-action">
+                <div class="draw-kinds">
+                    <div class="kinds-type">
+                        <div class="kinds-c active">
+                            <div class="kinds-img">
+                                <img src="../../images/lottery_draw/jiangpin_1@3x.png" alt="1">
+                            </div>
+                            <p>14只老鼠绘本</p>
+                        </div>
+                    </div>
+                    <div class="kinds-type two">
+                        <div class="kinds-c watch">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_2@3x.png" alt="2">
+                            </div>
+                            <p>华为手表</p>
+                        </div>
+                    </div>
+                    <div class="kinds-type three">
+                        <div class="kinds-c vip">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_3@3x.png" alt="3">
+                            </div>
+                            <p>月会员</p>
+                        </div>
+                    </div>
+
+                    <div class="kinds-type four">
+                        <div class="kinds-c">
+                            <div class="kinds-img">
+                                <img src="../../images/lottery_draw/jiangpin_1@3x.png" alt="4">
+                            </div>
+                            <p>14只老鼠绘本</p>
+                        </div>
+                    </div>
+
+                    <div class="kinds-type five">
+                        <div class="kinds-c vip">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_3@3x.png" alt="5">
+                            </div>
+                            <p>月会员</p>
+                        </div>
+                    </div>
+
+                    <div class="kinds-type six">
+                        <div class="kinds-c j">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_5@3x.png" alt="6">
+                            </div>
+                            <p>米奇乐高积木</p>
+                        </div>
+                    </div>
+
+                    <div class="kinds-type seven">
+                        <div class="kinds-c vip2">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_4@3x.png" alt="7">
+                            </div>
+                            <p>月会员</p>
+                        </div>
+                    </div>
+
+                    <div class="kinds-type eight">
+                        <div class="kinds-c vip">
+                            <div class="kinds-img ">
+                                <img src="../../images/lottery_draw/jiangping_3@3x.png" alt="8">
+                            </div>
+                            <p>月会员</p>
+                        </div>
+                    </div>
+                    <img class="draw-active" src="../../images/lottery_draw/choujiang@3x.png" alt="9">
+                </div>
+                <div class="count-down">
+                    <div class="count-time">
+                        <em>倒计时</em><span class="time-number"><i id="dayOne">0</i><i id="dayTwo">0</i></span><em>天</em><span
+                            class="time-number"><i id="hourOne">0</i><i id="hourTwo">0</i></span><em>时</em><span
+                            class="time-number"><i id="minuteOne">0</i><i id="minuteTwo">0</i></span><em>分</em><span
+                            class="time-number"><i id="secondOne">0</i><i id="secondTwo">0</i></span><em>秒</em>
+                    </div>
+                </div>
+
+            </div>
+            <div class="draw-notice">
+                <ul>
+                    <li class="notice-list">
+                            <img class="notice-img" src="../../images/lottery_draw/xiaoxi@3x.png" alt="">
+                            <div class="list-p">
+                            </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="draw-btn">
+                <button class="btn my-gift" >我的礼品</button>
+                <button class="btn my-info">填写信息</button>
+            </div>
+            <!--  -->
+            <div class="draw-explain">
+                <img class="explain-img" src="../../images/lottery_draw/huodongjiangpin@3x.png" alt="1">
+                <img class="explain-img" src="../../images/lottery_draw/huiyuantequan@3x.png" alt="2">
+                <img class="explain-img" src="../../images/lottery_draw/huodongguize@3x.png" alt="3">
+            </div>
+        </div>
+        <div class="draw-fixed">
+            <img src="../../images/lottery_draw/xuanfu@2x.gif" alt="">
+        </div>
+    </div>
+    <!-- 弹框 -->
+    <div class="fixed" id="fixed-box">
+        <div class="draw-box">
+            <div class="box-content">
+                <img class="award-img" src="../../images/lottery_draw/tanchuang_2@3x.png" alt="1">
+                <img class="btn-img"  src="../../images/lottery_draw/konw.png" alt="2">
+                <img class="close-img"   src="../../images/lottery_draw/guanbi@3x.png" alt="3">
+            </div>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <!-- 弹框组件 -->
+    <!-- <script src="./js/box.js"></script> -->
+    <!-- 页面js -->
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>宝贝故事</title>
+    <link rel="stylesheet" href="https://ybbh5.yunbaobei.com/activity/default/css/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/adaptive.js'></script>
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/font.js'></script>
+</head>
+
+<body>
+    <div class="bady-reading">
+        <img class="reading-img" src="./images/1.png" alt="">
+        <img class="reading-img" src="./images/2.png" alt="">
+        <img class="reading-img" src="./images/3.png" alt="">
+        <div class="reading-b-c">
+            <div class="reading-btn">
+                <div class="reading-h">领取绘本</div>
+                <div class="reading-h active">立即购买</div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+<script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+<script>
+    //滚动到一定的位置的时候出现立即购买底部栏
+    $(window).scroll(function (event) {
+        var oTop = document.body.scrollTop == 0 ? document.documentElement.scrollTop : document.body.scrollTop;
+        if (oTop > 750) {
+            $('.reading-b-c').fadeIn()
+        } else {
+            $('.reading-b-c').fadeOut()
+        }
+    })
+</script>
+
+</html>

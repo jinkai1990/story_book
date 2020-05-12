@@ -1,0 +1,321 @@
+body,
+html {
+    background-color: #fff;
+}
+
+.draw {
+    background: url('../../images/lottery_draw/beijing@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.title-img {
+    width: 100%;
+}
+
+.draw-content {
+    padding: 0 .63rem 2.4rem .63rem;
+    position: relative;
+}
+
+.draw-chance {
+    width: 3.43rem;
+    height: 1.46rem;
+    line-height: 1.46rem;
+    position: absolute;
+    top: -1.1rem;
+    left: 50%;
+    margin-left: -1.71rem;
+    background: url('../../images/lottery_draw/choujiangcishu@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.draw-chance p {
+    font-size: .3rem;
+    color: #fff;
+}
+
+.draw-chance .draw-nums {
+    color: #FFED1F;
+    display: inline-block;
+    margin: 0 .1rem;
+}
+
+.draw-action {
+    width: 100%;
+    margin-top: 1.1rem;
+    height: 6.4rem;
+    background: url('../../images/lottery_draw/yaojiangji@3x.gif') no-repeat center center;
+    background-size: 100% 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.draw-kinds {
+    position: relative;
+    /* background: #fff; */
+    width: 5.4rem;
+    height: 4.9rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.7rem;
+    top: 1rem;
+    z-index: 100;
+}
+
+.kinds-type {
+    width: 1.76rem;
+    height: 1.593rem;
+    background: url('../../images/lottery_draw/jiangpin@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.kinds-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: .73rem;
+    padding: .21rem 0;
+}
+
+.kinds-type.two {
+    left: 1.82rem;
+}
+
+.kinds-type.three {
+    left: 3.64rem;
+}
+
+.kinds-type.four {
+    top: 1.653rem;
+    left: 3.64rem;
+}
+
+.kinds-type.five {
+    top: 3.306rem;
+    left: 3.64rem;
+}
+
+.kinds-type.six {
+    top: 3.306rem;
+    left: 1.82rem;
+}
+
+.kinds-type.seven {
+    top: 3.306rem;
+}
+
+.kinds-type.eight {
+    top: 1.653rem;
+}
+
+
+.kinds-c img {
+    width: .63rem;
+    margin: 0 auto;
+}
+
+.kinds-c {
+    background: #fff;
+    border-radius: .13rem;
+}
+
+.kinds-c.watch img {
+    width: .89rem;
+}
+
+.kinds-c.vip img {
+    width: .94rem;
+}
+
+.kinds-c.vip2 img {
+    width: .84rem;
+}
+
+.kinds-c.j img {
+    width: 1.02rem;
+}
+
+.kinds-c.active {
+    background: #FFD5C8;
+}
+
+.kinds-c p {
+    color: #851B00;
+    font-size: .2rem;
+}
+
+.draw-active {
+    width: 1.76rem;
+    height: 1.593rem;
+    position: absolute;
+    top: 1.653rem;
+    left: 1.82rem;
+}
+
+.count-down {
+    width: 6.226rem;
+    height: 1.2rem;
+    background: url('../../images/lottery_draw/shijian@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 6.4rem;
+}
+
+.count-time {
+    font-size: .26rem;
+    color: #fff;
+    margin-top: .54rem;
+}
+
+.count-time i {
+    color: #333;
+    background-color: #fff;
+    padding: 0 .05rem;
+    border-radius: .06rem;
+    margin: 0 .03rem;
+    display: inline-block;
+    font-size: .24rem;
+
+}
+
+.time-number {
+    margin: 0 .1rem;
+    display: inline-block;
+}
+
+.draw-notice {
+    width: 100%;
+    height: 1.157rem;
+    background: url('../../images/lottery_draw/gonggaolan@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.notice-list {
+    display: flex;
+    font-size: .25rem;
+    color: #fff;
+    height:56px;
+    /* line-height: 70px; */
+    overflow: hidden;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.list-p {
+    /* display: flex;
+    flex-direction: column; */
+    height: 56px;
+}
+.list-p  p{
+    height: 56px;
+    line-height: 56px;
+}
+
+.notice-list .notice-img {
+    width: .32rem;
+    height: .32rem;
+    margin: 0 .1rem 0 .5rem;
+}
+
+.draw-btn {
+    display: flex;
+    justify-content: center;
+    margin: .3rem 0;
+}
+
+.draw-btn .btn {
+    background: #FFD800;
+    width: 2.8rem;
+    height: .82rem;
+    line-height: .82rem;
+    border-radius: .41rem;
+    color: #91471A;
+    font-size: .3rem;
+}
+
+.draw-btn .btn.my-gift {
+    margin-right: .2rem;
+}
+
+.draw-btn .btn.my-info {
+    margin-left: .2rem;
+}
+
+.explain-img {
+    width: 100%;
+    margin-bottom: .48rem;
+}
+
+.explain-img:last-child {
+    margin-bottom: 0;
+}
+
+.draw-fixed {
+    position: fixed;
+    bottom: .2rem;
+    z-index: 1000;
+    width: 100%;
+    display: none;
+}
+
+.draw-fixed img {
+    width: 100%;
+}
+
+.fixed {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+}
+
+.draw-box {
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(red, green, blue, alpha);
+}
+
+.box-content {
+    position: relative;
+    width: 98%;
+
+}
+
+.box-content .award-img {
+    width: 100%;
+}
+
+.box-content .btn-img {
+    width: 3.49rem;
+    position: absolute;
+    left: 50%;
+    bottom: 1.2rem;
+    margin-left: -1.745rem;
+}
+
+.box-content .close-img {
+    width: .7rem;
+    height: .7rem;
+    position: absolute;
+    bottom: -.9rem;
+    left: 50%;
+    margin-left: -.35rem;
+
+}

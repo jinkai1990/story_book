@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./video.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="video-m">
+        <div class="video-source">
+            <video controls id="video">
+                <source src="https://wgscdn.babystory365.com/audioCourse/2-0.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">
+            各个年级旅行有何不同？
+        </div>
+        <div class="video-t">
+            <div class="list-t">阅读</div>
+            <div class="list-t">小班</div>
+        </div>
+    </div>
+    <div class="video-i">
+        <div class="course-title">
+            <div class="title-c active">
+                课程简介
+            </div>
+            <div class="title-c">
+                学习目标
+            </div>
+        </div>
+        <div class="course-c active" id="courseIn">
+            <!-- 桥是跨越障碍的美丽象征。故事《爱心桥》描绘了小动物们 用身体搭桥，帮小熊过河的温馨场景。“爱心桥”象征了大家 心中那座团结友爱、互帮互助的精神桥梁，增进了朋友间的 友谊。本主题活动可以培养幼儿团结协作的精神，增强幼儿
+            的人际交往能力。儿歌《外婆桥》中的那座“外婆桥”搭建了 祖孙之间的情感桥梁，促进了祖孙之间的亲情沟通。儿歌可 以让幼儿感受到去外婆家的喜悦之情。 -->
+        </div>
+        <div class="course-c" id="courseTitle">
+            <!-- <p>1.感知并理解故事内容。 </p>
+            <p>2.理解故事中“爱心桥”的含义，树立主动帮助他人的意识。</p>
+            <p>3.逐步形成团结协作的意识。</p> -->
+        </div>
+
+    </div>
+    <div class="share-video">
+        <button>分享视频</button>
+    </div>
+
+    <div class="wx-g">
+        <img src="../../../images/reourse_class/wx.jpg" alt="">
+        <p>长按扫码关注云宝贝公众号</p>
+        <p>查看更多精彩视频</p>
+    </div>
+    <div class="share-w">
+        <img class="share-box" src="../../../images/reourse_class/ruhefenxiang@3x.png" alt="">
+        <img class="share-j" src="../../../images/reourse_class/jiantou@3x.png" alt="">
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script>
+        $('.share-video').on('click', function (e) {
+            e.stopPropagation()
+            $('.share-w').fadeIn()
+        })
+
+        $(document).on('click', function () {
+            $('.share-w').fadeOut()
+        })
+
+        var str = '1.感知并理解故事内容。2.理解故事中“爱心桥”的含义，树立主动帮助他人的意识。3.逐步形成团结协作的意识。'
+        var strArr = str.split('。') //将字符串变成数组
+        strArr.pop() //删除数组中的最后一个
+        for (var i = 0; i < strArr.length; i++) {
+            var strp = $('<p></p>');
+            $('#courseTitle').append(strp) //将创建的p添加到courseTitle中
+            strp.html(strArr[i]) //给p的hmtl赋值
+        }
+
+        var consts =
+            '  桥是跨越障碍的美丽象征。故事《爱心桥》描绘了小动物们      用身体搭桥，帮小熊过河的温馨场景。“爱心桥”象征了大家 心中那座团结友爱、互帮互助的精神桥梁，增进了朋友间的 友谊。本主题活动可以培养幼儿团结协作的精神，增强幼的人际交往能力。                    ' +
+
+            '儿歌《外婆桥》中的那座“外婆桥”搭建了 祖孙之间的情感桥梁，促进了祖孙之间的亲情沟通。儿歌可 以让幼儿感受到去外婆家的喜悦之情。'
+        $('#courseIn').html(trim(consts))
+        //去掉所有空格;
+        function trim(s) {
+            return s.replace(/\s*/g, ""); 
+        }
+
+
+        $('.course-title').on('click', '.title-c', function () {
+            var index = $(this).index()
+            $(this).addClass('active').siblings().removeClass('active')
+            $('.course-c').eq(index).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>

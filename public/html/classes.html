@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>领取课程</title>
+    <!-- 样式的重置 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/commom.css">
+    <!-- 创建班级 -->
+    <link rel="stylesheet" href="../css/classes.css">
+<body>
+    <div class="main">
+        <div class="courses coursesTwo">
+                <div class='courses-step clearfix'>
+                    <p class="step-r active">1<span class="step-n active">填写班级信息</span></p>
+                    <p class="step-l active"></p>
+                    <p class="step-r active">2<span class="step-n active">填写班级名称</span></p>
+                    <p class="step-l"></p>
+                    <p class="step-r">3<span class="step-n">开通课程</span></p>
+                </div>
+                
+        </div>
+            <div class="choose-title active">
+                <span class="flag-l"></span>
+                <span class="flag-r">请填写领取课程的班级名称</span>
+                <p class="classesTip"><img class="tipimg" src="../image/tishi@2x.png">若没有托班/学前班级可忽略不填</p>
+            </div>
+            <div class="classesName">
+               <div class="classes-t bf borderR">
+                    <div class="classes-name-type"><span>托班</span><button class="add-classes">填写班级名称</button></div>
+                    <div class="classes-content">
+                        <ul class="clearfix">
+                            <li><span class="classes-word">托一班</span></li>
+                            <li class="active"><span class="classes-word">托八班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                            <li class="active"><span class="classes-word">托十班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                            <li class="active"><span class="classes-word">托十二班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="classes-t bf borderR">
+                    <div class="classes-name-type"><span>小班班级名称</span><button class="add-classes">填写班级名称</button></div>
+                    <div class="classes-content">
+                        <ul class="clearfix">
+                            <li><span class="classes-word">小一班</span></li>
+                            <li class="active"><span class="classes-word">小八班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                            <li class="active"><span class="classes-word">小十班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                            <li class="active"><span class="classes-word">小十二班</span><p class="reduce-classes"><img  src="../image/x@2x.png" alt=""></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="classes-t bf borderR">
+                    <div class="classes-name-type"><span>中班班级名称</span><button class="add-classes">填写班级名称</button></div>
+                    <div class="classes-content">
+                        <ul class="clearfix">
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="classes-t bf borderR">
+                    <div class="classes-name-type"><span>大班班班级名称</span><button class="add-classes">填写班级名称</button></div>
+                    <div class="classes-content">
+                        <ul class="clearfix">
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+       
+        <button class="login-btn marginB"  onclick="nextSetp()">下一步</button>
+
+    </div>
+    <!-- 增加班级弹框 -->
+    <div class="bc" id="addClasses">
+        <div class="box active">
+            <p class="box-title active">填写班级名称</p>
+            <p class="box-close"><img src="../image/guanbi@2x.png" alt=""></p>
+            <div class="box-content">
+                <div class="write-info">
+                    <input type="text" class="add-inpt"  placeholder="输入一个或多个班级，多个班级用逗号隔开">
+                </div>
+                <div class="add-quick-classes" id="addQuick">
+                    <p class="add-title">点击快速添加班级名称</p>
+                </div>
+                <button class="box-btn active" id="btnSure">完成</button>
+                <button class="box-btn active" id="reviseSure">完成</button>          
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 提示弹框 -->
+    <div class="bc" id="tipBox">
+        <div class="box">
+            <div class="box-tip" id="tipName">您还未填写手机号码！</div>
+            <p class="box-close"><img src="../image/guanbi@2x.png" alt=""></p>
+            <button class="box-btn">确定</button>
+        </div>
+    </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <script src="../js/commom.js"></script>
+    <script>
+     screenChange()
+     compatibleIOS($('input'))
+     $(function() {
+            closeBox($('#tipBox .box-close'), $('#tipBox'), function() {
+                $('#addClasses').css('backgroundColor','rgba(0, 0, 0, 0.5)')
+                isClick = true;
+            })
+            closeBox($('#addClasses .box-close'), $('#addClasses'))
+            closeBox($('#tipBox .box-btn'), $('#tipBox'),function() {
+                $('#addClasses').css('backgroundColor','rgba(0, 0, 0, 0.5)')
+                isClick = true;
+            })
+                let exampleArr = [
+                [{ name: '托一班' }, { name: '托二班' }, { name: '托三班' }],
+                [{ name: '小一班' }, { name: '小二班' }, { name: '小三班' }],
+                [{ name: '中一班' }, { name: '中二班' }, { name: '中三班' }],
+                [{ name: '大一班' }, { name: '大二班' }, { name: '大三班' }]
+            ]
+            //创建快速点击班级名称
+            for (let i = 0; i < exampleArr.length; i++) {
+                let lis = exampleArr[i];
+                let exampleDiv = $('<div class="example-name"></div>')
+                let exampleUl = $('<ul class="clearfix"></ul>')
+                exampleDiv.append(exampleUl)
+                for(j = 0; j < lis.length; j++) {
+                    let liString = '<li>'+ lis[j].name+'</li>'
+                    exampleUl.append(liString)
+                }
+            $('#addQuick').append(exampleDiv)
+                
+            }
+
+            let index;
+            let readyClassesArr = []; //已经添加过班级名称
+            let nameArr = [];//存入输入框的值
+            let nameString = '';//将数组存入的数据展示到输入框中
+            let tempArray = {};//临时对象
+            let tempArray2 = [];//临时数组
+            let repeatClasses;
+            let isClick = true;//点击一次
+          //添加图片点击事件
+          $('.classes-t').on('click', '.add-classes', function () {
+                isClick = true;
+                readyClassesArr = [];//初始化已添加班级名称
+                nameArr = [];
+                quickArr = []
+                $('#addQuick').show()
+                 $('#reviseSure').hide()
+                 $('#btnSure').show()
+                 $('.box-title.active').html('填写班级名称')
+                showBox($('#addClasses'))
+                $('#addClasses').css('backgroundColor','rgba(0, 0, 0, 0.5)')
+                $('.example-name ul li').removeClass('checked')//初始化快速选中班级名称
+                index = $('.classes-t .add-classes').index(this);
+
+                $('.example-name').eq(index).addClass('active').siblings().removeClass('active');
+                let readyClasses = $(this).parent().next().find('li .classes-word');
+                for (let i = 0; i < readyClasses.length; i++) {
+                    readyClassesArr.push(readyClasses.eq(i).text())
+                 }
+                $('.add-inpt').val('')
+            })
+
+            //弹框确认按钮
+            $('#btnSure').on('click', function () {
+                if (isClick) { //避免多次点击
+                    changeBtnStyle()
+                    tempArray2 = [];
+                    tempArray = {};
+                    let liList;
+                    let addName = $('.add-inpt').val().trim();
+                    let flag = addName.indexOf('，')
+                    let addClasses = addName.split('，')
+                    console.log(flag)
+                    let flag2 = checkout(addName);
+                    let pattern = new RegExp('，，+');
+                    let flag3 = pattern.test(addName);
+                    //input的值为真时创建班级
+                    if (addName && addName != '，') {
+                        if (!flag2) { //判断是否包含特殊字符
+                            if (!flag3) {//判断是否包含连续的两个以上的逗号
+                            //判断输入的班级名称是否已经存在
+                            for (let i = 0; i < addClasses.length; i++) {
+                                let classS =  addClasses[i]
+                                tempArray[classS] = true;
+                            }
+                            
+                            for (let i = 0; i < readyClassesArr.length; i++) {
+                                let classS2 =  readyClassesArr[i]
+                                if (tempArray[classS2]) {
+                                    tempArray2.push(readyClassesArr[i])
+                                }
+                            }
+
+                            //输入的班级名称已经存在，会提示相应存在名称
+                            if (tempArray2.length > 0) {
+                                repeatClasses = tempArray2.join(';')
+                                showBox($('#tipBox'), $('#tipName'), `已存在同名班级：${repeatClasses}`)
+                                $('#addClasses').css('backgroundColor','transparent')
+                            } else {
+                                if (flag >= 0) { //判断是否添加多个
+                                    if(addClasses[addClasses.length - 1] && addClasses[0]) { //判断输入的最后不是逗号
+                                        for (let i = 0; i < addClasses.length; i++) {
+                                            list(addClasses[i], index)
+                                    }
+                                    } else if (addClasses[0] === '') {
+                                        for (let i = 1; i < addClasses.length; i++) {
+                                            list(addClasses[i], index)
+                                        }
+                                    } else {
+                                        for (let i = 0; i < addClasses.length - 1; i++) {
+                                            list(addClasses[i], index)
+                                        }
+                                    
+                                    }
+                                    $('.bc').fadeOut()
+                                }else{
+                                    list(addName, index)
+                                    $('.bc').fadeOut()
+                                }
+                            }
+                            } else {
+                                showBox($('#tipBox'), $('#tipName'), '不能输入连续以上的两个中文逗号!')
+                                $('#addClasses').css('backgroundColor','transparent')
+                            }
+
+                        } else {
+                            showBox($('#tipBox'), $('#tipName'), '班级名称只能包含,中文,英文,数字和中文逗号!')
+                            $('#addClasses').css('backgroundColor','transparent')
+                        }
+                    } else {
+                        showBox($('#tipBox'), $('#tipName'), '请填写班级名称!')
+                        $('#addClasses').css('backgroundColor','transparent')
+                        
+                    }
+                }
+                isClick = false;
+            })
+            //改变提示弹框按钮的样式
+            function changeBtnStyle() {
+                $('#tipBox .box-btn').removeClass('delete')
+                $('#tipBox .box-btn').html('确定')
+            }
+
+             //创建班级名称
+             function list (addName, index) {
+                liList = '<li class="active"><span class="classes-word">' + addName +
+                            '</span><p class="reduce-classes"><img src="../image/x.png" alt=""></p></li>'
+                        $('.classes-content ul').eq(index).append(liList)
+            }
+
+             //删除班级
+             $('.classes-content ul ').on('click', 'li .reduce-classes', function (e) {
+                e.stopPropagation()
+                $('#tipBox .box-btn').addClass('delete')
+                $('#tipBox .box-btn.delete').html('删除')
+                showBox($('#tipBox'), $('#tipName'), '确定要删除吗!')
+                let reduceClasses  = $('.classes-content ul li .reduce-classes')
+                let indexTwo = reduceClasses.index(this)
+                closeBox($('#tipBox .box-btn.delete'), $('#tipBox'), function() {
+                    reduceClasses.eq(indexTwo).parent().remove();
+                    changeBtnStyle()
+                })
+              
+            })
+
+             //修改班级
+             let indexNum = '';
+             let classesArr = [];
+             $('.classes-content ul ').on('click', 'li.active', function (e) {
+                 classesArr = [];
+                 $('#addQuick').hide()
+                 $('#reviseSure').show()
+                 $('#btnSure').hide()
+                 $('.box-title.active').html('修改班级名称')
+                 showBox($('#addClasses'))
+                 indexNum = $('.classes-content ul li.active').index(this)
+                 let classesName = $(this).find('.classes-word').text();
+                 $('.add-inpt').val(classesName)
+                 //将要修改的班级的同级的班级名称添加到数组中，判断修改时修改成相同的名称
+                 let classObj = $(this).parent().find('li .classes-word')
+                 for (let i = 0; i < classObj.length; i++) {
+                     if (classesName != classObj.eq(i).text()) {
+                        classesArr.push(classObj.eq(i).text())
+                     }
+                 }
+                
+             })
+             //修改班级名称确定操作
+             $('#reviseSure').on('click', function() {
+                changeBtnStyle()
+                $('#addClasses').css('backgroundColor','rgba(0, 0, 0, 0.5)')
+                let inputVal =  $('.add-inpt').val().trim();
+                let isSame = parseInt(classesArr.indexOf(inputVal))
+                if (inputVal) {
+                    if (!checkout(inputVal)) {
+                        if (isSame === -1) { //判断修改后的名称是否和之前的班级名称相同
+                            $('.classes-content ul li.active').eq(indexNum).find('.classes-word').html(inputVal)
+                            $('.bc').fadeOut()
+                        } else {
+                            showBox($('#tipBox'), $('#tipName'), `已存在相同班级名称: ${inputVal}`)
+                            $('#addClasses').css('backgroundColor','transparent')
+                        }
+                       
+                    } else {
+                        showBox($('#tipBox'), $('#tipName'), '班级名称只能包含,中文,英文,数字和中文逗号!')
+                        $('#addClasses').css('backgroundColor','transparent')
+                    }
+                } else {
+                    showBox($('#tipBox'), $('#tipName'), '请填写班级名称!')
+                    $('#addClasses').css('backgroundColor','transparent')
+                }
+             })
+            //input失去焦点事件
+            $('.add-inpt').on('blur', function () {
+                nameArr = [];
+                let addIput = $(this).val().trim();
+                if (addIput) {
+                    let inputArr = addIput.split('，')
+                    nameArr = nameArr.concat(inputArr)
+                } else {
+                    $('.example-name.active ul li').removeClass('checked')
+                }
+            })
+            
+            //点击快速添加班级
+            let classesName;
+            
+            $('.example-name ul li').on('click',function() {
+                classesName = $(this).text()
+            //判断是否选中
+            if ($(this).hasClass('checked')) {
+                $(this).removeClass('checked')
+                nameArr.splice(nameArr.indexOf(classesName), 1) //未选中时删除数组改班级名字
+            } else {
+                $(this).addClass('checked')
+                nameArr.push(classesName)//将选中的班级名称加到数组中
+            }
+            
+            if (nameArr) {
+                nameString = nameArr.join('，') //将数组转化为字符串
+                $('.add-inpt').val(nameString) //给input框赋值
+                
+            }
+        })
+       
+    
+     })
+     //下一步操作
+     function nextSetp() {
+       location.href = 'submitSuccess.html'
+     }
+    </script>
+</body>
+</html>

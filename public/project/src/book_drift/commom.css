@@ -1,0 +1,263 @@
+body,
+html {
+    height: 100%;
+}
+
+.drift {
+    height: 100%;
+    background: url('../../images/book/beijing@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    color: #444;
+    position: relative;
+}
+
+
+.drift-f {
+    padding-top: 2.73rem;
+    position: relative;
+}
+
+.drift-content {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 .14rem .38rem 0px rgba(0, 0, 0, 0.1);
+    border-radius: .4rem;
+    margin: 0 .34rem 0 .34rem;
+    position: relative;
+    padding: 1.5rem .56rem .5rem .56rem;
+    font-weight: 600;
+    font-size: .28rem;
+}
+
+.chatu {
+    width: 3rem;
+    position: absolute;
+    right: 0;
+    top: -2rem;
+}
+
+.drift-content p {
+    margin-bottom: .4rem;
+    line-height: .5rem;
+}
+
+
+
+.drift-title {
+    position: absolute;
+    top: .7rem;
+    left: .34rem;
+}
+
+.drift-title img {
+    width: 4.4rem;
+}
+
+.drift-title p {
+    font-size: .4rem;
+    color: #fff;
+    margin-top: .38rem;
+}
+
+.recive-btn {
+    width: 5.37rem;
+    height: 1.02rem;
+    line-height: 1.02rem;
+    font-size: .36rem;
+    color: #fff;
+    border-radius: .51rem;
+    background: rgba(38, 147, 239, 1);
+    margin: .3rem 0;
+    text-align: center;
+}
+
+.recive-btn.active {
+    background: #0BCCAE;
+}
+
+.drift-content p.share-tip {
+    margin: 0;
+    color: #888;
+    font-size: .26rem;
+    text-align: center;
+}
+.box-f {
+    display: none;
+}
+
+.box-b {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.box-c {
+    width: 5.12rem;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.9;
+    border-radius: .4rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.box-title {
+    padding: .4rem 0;
+    color: #444;
+    font-weight: bold;
+    font-size: .32rem;
+    border-bottom: 1px solid #CACACA;
+}
+
+.b-btn {
+    width: 50%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .36rem;
+    color: #888;
+    background: rgba(255, 255, 255, 1);
+}
+
+.b-btn.sure {
+    color: #557FF9;
+    border-left: 1px solid #CACACA;
+
+}
+
+.recive-type {
+    /* display: none; */
+}
+
+.recive-s {
+    /* display: none; */
+    text-align: center;
+}
+
+.recive-s img {
+    width: 3.4rem;
+    margin: 0 auto .36rem;
+}
+
+.recive-s p {
+    font-size: .34rem;
+    color: #444;
+    font-weight: bold;
+}
+
+.status {
+    height: 16rem;
+    width: 100%;
+    background: url('../../images/book/beijing——chenggong@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* .status-b {
+    width: 100%;
+    height: 17rem;
+} */
+
+
+.receive-s {
+    /* position: relative; */
+    top: 1.5rem;
+    width: 6.78rem;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 .08rem .46rem 0px rgba(0, 0, 0, 0.08);
+    border-radius: .4rem;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1.1rem 0 .3rem 0;
+    /* height: 7.6rem; */
+}
+
+.logo-img {
+    height: 1.92rem;
+    width: 1.92rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -.95rem;
+    top: -.95rem;
+}
+
+.logo-img img {
+    width: 100%;
+}
+
+.status-title {
+    font-size: .42rem;
+    font-weight: bold;
+    margin-bottom: .4rem;
+    color: #444;
+}
+
+.create-wx {
+    width: 3.45rem;
+    height: 3.45rem;
+    margin: 0 auto .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-wx img {
+    width: 100%;
+}
+
+.status-tip {
+    font-size: .3rem;
+    color: #888;
+}
+
+.success-q {
+    margin-top: .3rem;
+}
+
+.success-q p {
+    color: #F07F7F;
+    font-size: .26rem;
+    margin-bottom: .1rem;
+}
+
+.method {
+    background-color: #fff;
+    width: 100%;
+    padding: .52rem;
+    box-sizing: border-box;
+    border-radius: .4rem;
+}
+
+.method h1 {
+    font-size: .42rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: .3rem;
+}
+
+.method video {
+    width: 100%;
+    height: 3.5rem;
+}
+
+.method-f {
+    top: 10rem;
+    box-sizing: border-box;
+    width: 6.78rem;
+    height: 4.34rem;
+    margin: 0 auto;
+
+}
+
+.por {
+    position: absolute;
+}

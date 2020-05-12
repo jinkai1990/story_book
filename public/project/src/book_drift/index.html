@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./commom.css">
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <title>云宝贝</title>
+</head>
+
+<body>
+    <div class="drift">
+        <div class="drift-f">
+            <div class="drift-title">
+                <img src="../../images/book/biaoti@3x.png" alt="">
+                <p>全国孩子免费上</p>
+            </div>
+            <div class="drift-content">
+                <img class="chatu" src="../../images/book/chatu@3x.png" alt="2">
+                <!-- <p>1、由PECERA认证的在线亲子绘本阅读课程</p> -->
+                <p>1、送给全国幼儿园小朋友共10万个学习名额</p>
+                <p>2、四大环节：包含互动阅读、脑筋转转转、 表达力Max、阅读竞技场，让宝贝玩中学</p>
+                <div class="recive-type" id="reciveT">
+                    <div class="recive-btn" id="reciveOne" onclick="reciveCourse('one')">免费领取小班/中班课程</div>
+                    <div class="recive-btn active" onclick="reciveCourse('two')" id="reciveTwo">免费领取大班/学前班课程</div>
+                </div>
+                <div class="recive-s" id="reciveS">
+                    <img src="../../images/book/erweima@3x.png" alt="1">
+                    <p>您已成功领取课程</p>
+                </div>
+
+                <p class="share-tip">点击右上角“…”，将课程分享给好友</p>
+            </div>
+        </div>
+        <div class="box-f" id="boxF">
+            <div class="box-b">
+                <div class="box-c">
+                    <div class="box-title">
+                        <p id="courseType"></p>
+                        <p>领取后将不能更改</p>
+                    </div>
+                    <div>
+                        <button class="b-btn" id="boxCancel" onclick="boxCancel()">取消</button><button class="b-btn sure"
+                            id="boxSure" onclick="boxSure()">确认</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278606944'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1278606944%26l%3D3' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script>
+        var urlData = getRequest(location.href);
+        var typeCourse = null;
+        $('#boxF').hide()
+        if (urlData.msg === 'allow') {
+            $('.recive-type').show()
+            $('.recive-s').hide()
+        } else {
+            $('.recive-type').hide()
+            $('.recive-s').show()
+        }
+
+        var title = '云宝贝阅读公益课';
+        var desc = "停课不停学，全国孩子免费上";
+        var imgUrl = "https://wgscdn.babystory365.com/wx/wx-x.png";
+
+        wxinit(title, desc, imgUrl);
+
+       
+        //友盟埋点
+        if (window._czc) {
+            window._czc.push(["_trackPageview", '绘本漂流', "进入绘本漂流页面"]);
+        }
+        $('span a').hide()
+
+        //课程的领取
+        function reciveCourse(type) {
+            $('#boxF').fadeIn()
+            if (type === 'one') {
+                typeCourse = 1
+                $('#courseType').html('确定要领取小班/中班课程吗？')
+            } else {
+                $('#courseType').html('确定要领取大班/学前班课程吗？')
+                typeCourse = 2
+            }
+        }
+        //弹框取消
+        function boxCancel() {
+            $('#boxF').fadeOut()
+        }
+        //弹框确定
+        function boxSure() {
+            var classId = null;
+            if (typeCourse === 1) {
+                classId = '686,3'
+            } else {
+                classId = '685,2'
+            }
+            var data = {
+                'classIdTarget': classId,
+                'unionId': urlData.unionId
+            }
+            $.ajax({
+                url: 'https://wechat.v2.babystory365.com/memberManager/confirmJoinActivity', // url action是方法的名称
+                cache: false,
+                data: JSON.stringify(data),
+                type: 'POST',
+                dataType: 'JSON',
+                contentType: "application/json; charset=utf-8",
+                // crossDomain: true,
+                beforeSend: function (request) {},
+                success: function (data) {
+                    if (data.res_code === 200) {
+                        window.location.href = './recive-success.html'
+                    } else {
+                        alert(data.res_msg)
+                    }
+                },
+                error: function (msg) {
+                    alert(msg)
+                }
+            });
+        }
+
+        //获取url后面的参数
+        function getRequest(url) {
+            var i = url.indexOf('?');
+            if (i === -1) {
+                return {
+                    msg: 'allow',
+                    unionId: ''
+                }
+            };
+            var querystr = url.substr(i + 1);
+            var arr1 = querystr.split('&');
+            var arr2 = new Object();
+            for (i in arr1) {
+                var t = arr1[i].split('=');
+                arr2[t[0]] = t[1];
+            }
+            return arr2;
+        }
+
+        function wxinit(title, desc, imgUrl) {
+            var appId = 'wxd6d9705a395f8187';
+            //var signature = '16c7ea3e6fa4ce16e424a5e7533710fefbf9077b';
+            var timestamp = '1421664732';
+            var nonce = '424934450';
+            var locationUrl = location.href.split('#')[0];
+            $.ajax({
+                type: "GET",
+                url: "http://wechat.v2.babystory365.com/wxSignature/getSignatureInfo",
+                data: {
+                    "noncestr": nonce,
+                    "timestamp": timestamp,
+                    "url": locationUrl
+                },
+                dataType: "jsonp",
+                crossDomain: true,
+                jsonp: "callbackparam",
+                jsonpCallback: "success_jsonpCallback",
+                success: function (data) {
+                    var signature = data;
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: appId, // 必填，公众号的唯一标识
+                        timestamp: timestamp, // 必填，生成签名的时间戳
+                        nonceStr: nonce, // 必填，生成签名的随机串
+                        signature: signature, // 必填，签名，见附录1
+                        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ',
+                            'onMenuShareWeibo'
+                        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+                }
+            });
+
+            wx.ready(function () {
+
+                /**朋友圈**/
+                wx.onMenuShareTimeline({
+                    title: title, // 分享标题
+                    link: locationUrl, // 分享链接
+                    imgUrl: imgUrl, // 分享图标
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                /**好友**/
+                wx.onMenuShareAppMessage({
+                    title: title, // 分享标题
+                    desc: desc, // 分享描述
+                    link: locationUrl, // 分享链接
+                    imgUrl: imgUrl, // 分享图标
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+
+                wx.onMenuShareQQ({
+                    title: title, // 分享标题
+                    desc: desc, // 分享描述
+                    link: locationUrl, // 分享链接
+                    imgUrl: imgUrl, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                wx.onMenuShareWeibo({
+                    title: title, // 分享标题
+                    desc: desc, // 分享描述
+                    link: link, // 分享链接
+                    imgUrl: imgUrl, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+            });
+        }
+    </script>
+
+</html>

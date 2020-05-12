@@ -1,0 +1,73 @@
+.course {
+    position: relative;
+}
+
+.course .course-img {
+    width: 100%;
+}
+
+.course-study {
+    width: 100%;
+    height:5.6rem;
+    background: url('../../images/pay_course/beijing.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.study-img {
+    display: -webkit-box;
+    overflow-x: scroll;
+    padding-left: .2rem;
+    -webkit-overflow-scrolling:touch;
+}
+
+.study-img img {
+    width: 2.4rem;
+    height: 4.28rem;
+    box-shadow:0 .36rem .46rem  .05rem rgba(200,174,71,0.43);
+}
+
+.study-img img.active {
+   margin: 0 .76rem
+}
+
+.study-img .k {
+    width: .2rem;
+}
+
+.course-btn {
+    position: fixed;
+    left: 0;
+    bottom: .5rem;
+    width: 100%;
+    display: flex;
+    padding: 0 .4rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.course-btn .course-pay {
+    font-size: .31rem;
+    height: 1.07rem;
+    line-height:1.07rem; 
+    width: 3.2rem;
+    text-align: center;
+    background-color: #FFE400;
+    border-radius:.2rem;
+    box-shadow:0 .1rem .1rem  .05rem rgba(200,174,71,0.43);
+}
+
+.course-btn .course-pay a {
+    color: #936024;
+    text-decoration: none;
+}
+
+.course-btn .course-pay.active {
+    background-color: #FF6060;
+}
+
+.course-btn .course-pay.active  a{
+    color: #fff;
+
+}

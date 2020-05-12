@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>领取课程服务</title>
+      <!-- 样式的重置 -->
+      <link rel="stylesheet" href="../css/base.css">
+      <!-- 公共样式 -->
+      <link rel="stylesheet" href="../css/commom.css">
+</head>
+<body>
+    <div class="main">
+        <div class="courses coursesTwo">
+                <div class='courses-step clearfix'>
+                    <p class="step-r active">1<span class="step-n active">填写班级信息</span></p>
+                    <p class="step-l active"></p>
+                    <p class="step-r active">2<span class="step-n active">填写班级名称</span></p>
+                    <p class="step-l"></p>
+                    <p class="step-r">3<span class="step-n">开通课程</span></p>
+                </div>
+        </div>
+        <div class="classes active borderR">
+            <div class="choose-title active">
+                <span class="flag-l"></span>
+                <span class="flag-r">领取成功</span>
+            </div>
+            <div class="classes-s">
+                <p class="mb">亲爱的老师，您好！<span class="name-l">“同步阅读课程”</span>已经领取 成功！</p>
+                <p class="mb">开课指南如下：</p>
+                <p class="compass ">1. 请您分享给老师</p>
+                <p class="compass">2. 让老师完成注册</p>
+                <p class="compass">3. 让老师分享给家长</p>
+                <p class="mb">共同开启同步阅读课程之旅吧！</p>
+
+            </div>
+        </div>
+        <div class="tip-invite">
+                <img src="../image/yindao_jiazhang@2x.png" alt="">
+              </div>
+        <button class="login-btn marginB" >分享给家长</button>
+    </div>
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+    <script src="../js/commom.js"></script>
+    <script>
+      screenChange()
+      
+        // 邀请点击事件
+        $('.login-btn').on('click',function(e) {
+            e.stopPropagation()
+            $('.tip-invite').fadeIn()
+        })
+        $(document).on('click',function(e) {
+                e.stopPropagation()
+            $('.tip-invite').fadeOut()
+        })
+        $('.tip-invite').on('click',function() {
+            $(this).fadeOut()
+        })
+        
+
+    </script>
+</body>
+</html>

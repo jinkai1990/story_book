@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Html5 Canvas 实现图片合成 |</title>
+<style>
+
+</style>
+</head>
+
+<body style="width:100%;height:100%;margin: 0;overflow: hidden; position:fixed;
+left:0;
+top:0;">
+        <div class="pho-bg">
+                <img style="display: none" src="../image/wx-code.jpg" class="man man-1" id="man-1" alt="">
+     </div>
+     <div class="photo"></div>
+     <canvas id="myCanvas" width="350" height="500"></canvas>
+     <div style="display: none">
+            <img src="../image/laoshi.png"id="bg1"  alt="">
+            <!-- <img src="../image/wx-code.jpg" id="btn1"  alt=""> -->
+     </div>
+    
+     
+    <script src="https://img.v2.babystory365.com/js/public/jquery-1.8.2.min.js"></script>
+<script>
+    setTimeout(hecheng,100)
+
+           function hecheng() {
+            $('.pho-bg').hide();
+            // $('#myCanvas').show();
+            var man1 = document.getElementById("man-1"),
+               
+             canvasBg = document.getElementById("bg1");
+        
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            var ratio = getPixelRatio(ctx);  // 关键代码
+            let w =  document.documentElement.clientWidth
+            let h =  document.documentElement.clientHeight
+              // 关键代码
+            canvas.width = w;
+            canvas.height = h;
+           
+            // 制作背景图
+            // var patBg = ctx.createPattern(canvasBg, "no-repeat");
+            // ctx.rect(0, 0, window.innerWidth, window.innerHeight);
+            // ctx.fillStyle = patBg;
+            // ctx.fill();
+            // 将man1,man2,man3,man4,sen1,btn加入画布
+          
+            ctx.drawImage(canvasBg, 0, 0, window.innerWidth,  window.innerHeight);
+            ctx.drawImage(man1, 140, 380, 100, 100);
+            ctx.scale(ratio,ratio);
+
+            ctx.font = "bold 1rem Arial";
+            ctx.fillStyle = '#FF625E'
+            console.log((canvas.width-ctx.measureText('小太幼儿园阳2222222').width)/2)
+            ctx.fillText('小太幼儿园阳', (canvas.width - ctx.measureText('小太幼儿园阳').width) / 2, h/4.8);
+           
+           }
+ 
+         
+           function getPixelRatio(context) {
+    var backingStore = context.backingStorePixelRatio ||
+        context.webkitBackingStorePixelRatio ||
+        context.mozBackingStorePixelRatio ||
+        context.msBackingStorePixelRatio ||
+        context.oBackingStorePixelRatio ||
+        context.backingStorePixelRatio || 1;
+    return (window.devicePixelRatio || 1) / backingStore;
+};
+</script>
+</body>
+</html> 

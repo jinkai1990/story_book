@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>开通会员</title>
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class='double-twelve'>
+            <!-- 头部图片 -->
+            <img :src="headerImgSrc" alt="headerImg">
+            <!-- 活动规则 -->
+            <div class='active-rule' @click='showRules'>活动规则</div>
+            <!-- 会员价格和倒计时 -->
+            <div class="member">
+                <div class="member-price">
+                    <p>开通年会员</p>
+                    <p>送价值279元阅读大礼包</p>
+                </div>
+                <div class="btn-c">
+                    <img class='btn-img' :src="btnImg" alt="立即领取">
+                    <img class='btn-img' :src="btnImg2" alt="立即开通">
+                </div>
+
+                <div class="count-down">
+                    <em class="count-w">距结束</em><strong class='count-down-time'>{{showDay}}</strong><em
+                        class="count-w">天</em><strong class='count-down-time'>{{showHour}}</strong>:<strong
+                        class='count-down-time'>{{showMinute}}</strong>:<strong
+                        class='count-down-time'>{{showSeconde}}</strong>
+                    </h1>
+                </div>
+            </div>
+            <!-- 内容图片 -->
+            <img :src="contentImgSrc" alt="contentOne">
+            <img style="margin-top: -1rem;" :src="contentImgSrcTwo" alt="contentTwo">
+        </div>
+        <!-- 弹框 -->
+        <div class="rule-box" style="display: none;" v-if='fixedShow'>
+            <img class="close-img" @click='hideRules' src="../../images/payTwo//close.png" alt="">
+            <div class="box">
+
+                <div class='box-content'>
+                    <h1>活动规则</h1>
+                    <p>1.活动时间:2019年12月12日结束</p>
+                    <p>2.参与条件:用户成功购买一次年会员,既可以获得一个阅读大礼包,一个账号限购一次。</p>
+                    <p>3.活动期间,请按要求填写相关信息,否则均视为放弃礼包。</p>
+                    <p>4.发货时间:阅读大礼包将于活动结束后7个工作日内发放。</p>
+                    <p>5.请详细阅读活动规则,宝贝故事享有最终解释权。</p>
+                    <p>如有疑问,可在工作日09:00-18:00添加芒果老师</p>
+                    <p>微信进行咨询:bbgs8800。</p>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+        <!-- 弹框组件 -->
+        <script src="../../js/public.js"></script>
+        <script>
+            $(window).scroll(function (event) {
+                var scrollH = $(document).height() - $(window).height();
+                var oTop = document.body.scrollTop == 0 ? document.documentElement.scrollTop : document.body
+                    .scrollTop;
+
+                console.log(scrollH)
+                console.log(oTop)
+                if (scrollH === oTop) {
+                    if (callBack && typeof callBack === 'function') {
+                        callBack()
+                    }
+                }
+
+            });
+        </script>
+        <!-- 页面js -->
+        <!-- <script src="./index.js"></script> -->
+
+</body>
+
+</html>

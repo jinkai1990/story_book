@@ -1,0 +1,133 @@
+body,
+html {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+.tab-head {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0;
+  overflow: auto;
+  height: 7.5%;
+  align-items: center;
+  /* line-height: 1rem; */
+  box-sizing: border-box;
+}
+
+.tab-head-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  color: white;
+  padding: 0 .2rem;
+  color: #888;
+  font-size: .3rem;
+}
+
+.tab-head-item.active {
+  color: #48ADF3
+}
+
+.list-c {
+  margin-top: 6%;
+  background-color: #fff;
+  padding: 0 .35rem;
+  max-height: 89%;
+  overflow: auto;
+}
+
+.list-c ul li {
+  display: flex;
+  align-items: center;
+  font-size: .3rem;
+  color: #444;
+  border-bottom: 1px solid #EEEEEE;
+  padding: .28rem 0;
+}
+
+.list-c ul li img {
+  width: 3.2rem;
+  height: 1.8rem;
+  border-radius: .1rem;
+  margin-right: .3rem;
+}
+
+.box-f {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: center;
+}
+
+
+.box {
+  width: 80%;
+  background-color: #fff;
+  border-radius: .3rem;
+  margin: 0 auto;
+}
+
+.box-c {
+  padding: .4rem .3rem;
+  color: #000;
+  font-size: .3rem;
+}
+
+.box-k {
+  color: #5780be;
+}
+
+.box-btn {
+  text-align: center;
+  margin: .3rem 0;
+}
+
+.box-btn .btn {
+  border: 1px solid #3c8feb;
+  width: 2rem;
+  height: .6rem;
+  line-height: .6rem;
+  color: #fff;
+  background-color: #3c8feb;
+  margin-right: .2rem;
+  border-radius: .4rem;
+  font-size: .3rem;
+}
+
+.box-btn .btn.active {
+  color: #3c8feb;
+  background-color: #fff;
+  margin-right: 0;
+  margin-left: .2rem;
+}
+
+.question {
+  width: .7rem;
+  position: fixed;
+  right: .35rem;
+  top: 3.12rem;
+}
+
+.question img {
+  width: 100%;
+}

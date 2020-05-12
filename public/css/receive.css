@@ -1,0 +1,234 @@
+body,
+html {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.receive {
+    color: #666;
+    position: relative;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+.receive.noNumber {
+    width: 100%;
+    height: 100%;
+    background: url('../image/changeImg/erweimabeijing@2x.png') no-repeat center;
+    background-size: 100% 100%;
+}
+.receive-c {
+    position: relative;
+}
+
+.receive-title {
+    font-size: 2rem;
+    color: #fff;
+    height: 15rem;
+    width: 100%;
+    background: url('../image/changeImg/beijing@2x.png') no-repeat center;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.receive-title p {
+    padding: 1.7rem 0;
+}
+
+.receive-s {
+    position: relative;
+    top: -8rem;
+    width: 80%;
+    left: 50%;
+    margin-left: -40%;
+    background: #fff;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 1.5rem 0rem rgba(47, 67, 225, 0.39);
+    border-radius: 1rem;
+}
+.receive-s p{
+    text-indent: 1rem;
+    font-size: .8rem;
+    line-height: 1.5rem;
+}
+.receive-s .tL {
+    width: 3.4rem;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+}
+.receive-s .bR {
+    width: 4rem;
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+}
+.receive-t {
+    position: absolute;
+    width: 100%;
+    bottom: 1rem;
+    text-align: center;
+}
+.receive-t.active {
+    bottom: 0rem;
+}
+.receive-b {
+    background:rgba(61,82,248,1);
+    border-radius:1.5rem;
+    color: #fff;
+    height: 2.6rem;
+    width: 64%;
+    margin-left: 18%;
+    line-height: 2.6rem;
+    font-size: 1rem;
+    text-align: center;
+}
+.tip-b {
+    color: #999;
+    font-size: .7rem;
+    margin-top: .8rem;
+}
+.receive-success {
+    display: flex;
+    justify-content: space-between;
+    color: #F54996;
+    padding: 0 1rem;
+    align-items: center;
+    font-size: .8rem;
+
+}
+.line {
+    height: 1px;
+    width: 3rem;
+    background: #F54996;
+}
+.invite-btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.3rem;
+    box-sizing: border-box;
+    margin-top: 1.4rem;
+}
+.receive-btn {
+    width: 7rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    background: #3D52F8;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 2rem;
+    border: 1px solid #3D52F8;
+    box-sizing: border-box;
+}
+.receive-btn.active {
+    background: #fff;
+    color: #3D52F8;
+   
+}
+.wx-tip {
+    width: 90%;
+    background: #fff;
+    border-radius: 1rem;
+    margin-left: 5%;
+    position: absolute;
+    bottom: 3.6rem;
+    text-align: center;
+    padding: 0 2rem 1.8rem 2rem;
+    box-sizing: border-box;
+    font-size: .8rem;
+    color: #666;
+}
+.wx-tip img {
+    display: block;
+    width: 8rem;
+    margin: 1.8rem auto;
+}
+.wx-tip .w { 
+    margin-bottom: .4rem;
+}
+
+.custom {
+    padding: 1rem;
+    color: #666;
+    font-size: .7rem;
+    line-height: .8rem; 
+    height: 100%;
+    background: #f3f3f3;
+    box-sizing: border-box;
+}
+.custom-s {
+    background: #fff;
+    padding: 1rem;
+    margin-bottom: .9rem;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    box-shadow:0rem .5rem .5rem 0rem rgba(0, 0, 0, 0.02);
+}
+.custom-s img {
+    width: 6.5rem;
+    display: block;
+    margin: .8rem auto 0;
+}
+.custom-s.active {
+    line-height: 1.2rem; 
+}
+.custom-s .company-img {
+    width: 14rem;
+}
+.custom-s.b {
+    margin-bottom: 0;
+}
+
+.share-l{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #444;
+    font-size: .9rem;
+}
+.share-l .flag {
+    width: .3rem;
+    height: .9rem;
+    background: #328BE7;
+    margin-right: .4rem;
+    line-height: .9rem;
+}
+.share-l .title {
+    font-size: .9rem;
+   
+    font-weight: bold;
+}
+.share-c {
+    padding: .55rem;
+    font-size: .75rem;
+    line-height: 1.3rem;
+}
+ .share-c .bold {
+    font-weight: bold;
+}
+ .share-c .bold.b {
+    color: #2686EA;
+}
+.share-c .bold.h {
+    color: #444;
+}
+.share-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+.share-btn button {
+    background: #328BE7;
+    width: 8rem;
+    height:2.4rem;
+    line-height: 2.4rem;
+    font-size: .9rem;
+    color: #fff;
+    border-radius: 2rem;
+    border:1px solid rgba(50, 139, 231, 1);
+}
+.share-btn button.personal {
+    background: #fff;
+    color: #2686EA;
+} 

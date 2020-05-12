@@ -1,0 +1,150 @@
+body,
+html {
+    height: 100%;
+}
+
+.drift {
+    height: 100%;
+    background: url('../../images/book/beijing@3x.png') no-repeat center center;
+    background-size: 100% 100%;
+    color: #444;
+    position: relative;
+}
+
+
+.drift-f {
+    padding-top: 2.73rem;
+    position: relative;
+}
+
+.drift-content {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 .14rem .38rem 0px rgba(0, 0, 0, 0.1);
+    border-radius: .4rem;
+    margin: 0 .34rem 0 .34rem;
+    position: relative;
+    padding: 1.5rem .56rem .5rem .56rem;
+    font-weight: 600;
+    font-size: .28rem;
+}
+
+.chatu {
+    width: 3rem;
+    position: absolute;
+    right: 0;
+    top: -2rem;
+}
+
+.drift-content p {
+    margin-bottom: .4rem;
+    line-height: .5rem;
+}
+
+
+
+.drift-title {
+    position: absolute;
+    top: .7rem;
+    left: .34rem;
+}
+
+.drift-title img {
+    width: 4.4rem;
+}
+
+.drift-title p {
+    font-size: .4rem;
+    color: #fff;
+    margin-top: .38rem;
+}
+
+.recive-btn {
+    width: 5.37rem;
+    height: 1.02rem;
+    line-height: 1.02rem;
+    font-size: .36rem;
+    color: #fff;
+    border-radius: .51rem;
+    background: rgba(38, 147, 239, 1);
+    margin: .3rem 0;
+    text-align: center;
+}
+
+.recive-btn.active {
+    background: #0BCCAE;
+}
+
+.drift-content p.share-tip {
+    margin: 0;
+    color: #888;
+    font-size: .26rem;
+    text-align: center;
+}
+.box-f {
+    display: none;
+}
+
+.box-b {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.box-c {
+    width: 5.12rem;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.9;
+    border-radius: .4rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.box-title {
+    padding: .4rem 0;
+    color: #444;
+    font-weight: bold;
+    font-size: .32rem;
+    border-bottom: 1px solid #CACACA;
+}
+
+.b-btn {
+    width: 50%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .36rem;
+    color: #888;
+    background: rgba(255, 255, 255, 1);
+}
+
+.b-btn.sure {
+    color: #557FF9;
+    border-left: 1px solid #CACACA;
+
+}
+
+.recive-type {
+    /* display: none; */
+}
+
+.recive-s {
+    /* display: none; */
+    text-align: center;
+}
+
+.recive-s img {
+    width: 3rem;
+    margin: 0 auto .36rem;
+}
+
+.recive-s p {
+    font-size: .34rem;
+    color: #444;
+    font-weight: bold;
+}

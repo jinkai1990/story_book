@@ -1,0 +1,114 @@
+.bady-page {
+    position: relative;
+    color: #826815;
+    font-size: .3rem;
+}
+body,
+html {
+    background-color: #4e9c70;
+}
+
+.bady-page img {
+    display: block;
+    width: 100%;
+}
+
+.bady-header {
+    height: 21.61rem;
+    background: url('../../images/baday_page/1.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.bady-header .picture-book {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    top: 8.5rem;
+}
+
+.bady-header .picture-book.two {
+    top: 13.5rem;
+}
+
+.bady-header .picture-book.three {
+    top: 17.5rem;
+}
+
+.picture-book .title-img {
+    width: 5.5rem;
+}
+
+.picture-book .title-name {
+    width: 3rem;
+    margin: .35rem 0;
+}
+
+.picture-book .book-list {
+    display: flex;
+    justify-content: center;
+}
+
+.book-list img {
+    width: 1.8rem;
+    margin: 0 .15rem;
+    box-shadow:-.05rem .05rem .3rem .05rem rgba(29,120,42,0.3);
+}
+
+.bady-over {
+    position: fixed;
+    bottom: .45rem;
+    padding: .1rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+.bady-over .over-btn {
+    width: 100%;
+    height: 1.4rem;
+    background: url('../../images/baday_page/anniu@2x.png') no-repeat center;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.over-btn a {
+    text-decoration: none;
+    font-size: .4rem;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.4rem;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 600;
+}
+
+.over-btn .btn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.over-btn .down-app {
+    flex: 1;
+}
+
+.over-btn .free a{
+    color: #826815;
+}
+
+.over-btn .free {
+    flex: 1;
+}
+
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://ybbh5.yunbaobei.com/activity/default/css/base.css">
+    <link rel="stylesheet" href="./lessons.css">
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/adaptive.js'></script>
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/font.js'></script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+    <title>资源详情</title>
+</head>
+
+<body>
+    <div class="lesson-details" id="app">
+        <div class="details-header">
+            <img class="details-header-img" src="./1.jpg" alt="">
+        </div>
+
+        <div class="details-title">
+            《艺＋哎呦宝贝》第一级
+        </div>
+
+        <div class="details-content">
+            <div class="lesson-i">课程介绍</div>
+            <div class="details-l text-indent" :class='isAllShow ? "" : "active" '>
+                《艺+哎呦宝贝》是中国第一款以融合式教学理念而 开发的综合艺术素质教育课程，涉及音乐、舞蹈、表演 三大艺术领域，同时也是中国第一部既有教育内涵又兼 顾娱乐故事性的艺术启蒙动画片。《艺+哎呦宝贝》是
+                在充分调研和分析国内幼儿教育发展趋势的基础上是 在充分调研和分析国内幼儿教育发展趋势的基础上是 在充分调研和分析国内幼儿教育发展趋势的基础上
+            </div>
+            <div class="details-all" @click='detailsAll'>
+                {{isAllShowText}}
+            </div>
+        </div>
+
+        <div class="details-content">
+            <div class="lesson-i">课程进度</div>
+            <div class="details-lesson" v-for='(item,index) in titleListDatas' :key='index'>
+                <div class="lesson-one-title">
+                    {{item.titleOne}}
+                </div>
+                <div class="lesson-two clearfix">
+                    <div class="lesson-two-name"
+                     :class='(index+1)%2 === 0? "left": "right"'
+                     @click='toVideoDetail(itemTwo.typeTwoId)'
+                    v-for='(itemTwo,index) in item.lessonTwo' :key='index'>
+                        {{itemTwo.titleTwo}}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            isAllShow: false, //是否显示全文
+            isAllShowText: '全文',
+            titleListDatas: [{
+                    titleOne: ' 第一单元 第二小节',
+                    typeOneId: '1',
+                    lessonTwo: [{
+                            titleTwo: '1-1 逗比的拉拉队歌1',
+                            typeTwoId: '1_1'
+                        },
+                        {
+                            titleTwo: '1-1 逗比的拉拉队歌1',
+                            typeTwoId: '1_2'
+                        },
+                        {
+                            titleTwo: '1-1 逗比的拉拉队歌1',
+                            typeTwoId: '1_3'
+                        },
+                    ]
+                },
+                {
+                    titleOne: '第二单元：第三小节',
+                    typeOneId: '2',
+                    lessonTwo: [{
+                            titleTwo: '1-2 速度随心变1',
+                            typeTwoId: '2_1'
+                        },
+                        {
+                            titleTwo: '1-2 速度随心变2',
+                            typeTwoId: '2_2'
+                        },
+                        {
+                            titleTwo: '1-2 速度随心变3',
+                            typeTwoId: '2_3'
+                        },
+                    ]
+                },
+
+            ]
+
+
+        },
+        created: function () { //用于初始化数据
+
+        },
+        mounted() {},
+        methods: { //写方法函数的地方
+            detailsAll() {
+                if(this.isAllShow) {
+                    this.isAllShow = false;
+                    this.isAllShowText = '全文'
+                } else {
+                    this.isAllShow = true;
+                    this.isAllShowText = '收起全文'
+                }
+            },
+
+            toVideoDetail(id) { //点击跳转视频播放页面
+                console.log('lesson_video')
+                window.location = './lesson_video.html?id='+id
+
+            }
+        },
+
+
+    })
+</script>
+
+</html>

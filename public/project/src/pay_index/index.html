@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>课程详情</title>
+    <script src='../../js/adaptive.js'></script>
+    <script>
+        window['adaptive'].desinWidth = 750;
+        window['adaptive'].baseFont = 20;
+        window['adaptive'].init();
+    </script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bady-pay">
+            <!-- 头部 -->
+            <div class="pay-header">
+                <div class="header-title">
+                    <!-- <img class="title-img" :src="headerTitleSrc" alt="1"> -->
+                    <img class="header-title-img" :src="coverImg" alt="2">
+                    <div class="pay-number">
+                        <div class="pay-price">
+                            <div class="pay-price-l">
+                                <div>原价: ￥<span class="now-price">{{nowPrice}}</span></div>
+                                <div class="new-price">新人价</div>
+                            </div>
+
+                            <div class="pay-price-r">
+                                <div class="money-c">￥</div>
+                                <div class="new-num">{{newPrice}}</div>
+                            </div>
+                        </div>
+                        <div class="buy-num">已有<span>{{buyNum}}</span>人购买课程</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- 内容 -->
+            <div class="pay-content">
+                <p class="content-m">10本通俗易懂的中华传统文化经典故事，汲取优秀的传统文化内涵，让孩子在寒假期间增长知识，陶冶情操，变身国学小达人！</p>
+                <ul class="course-j">
+                    <li class="one">
+                        <img src="./images/payFour/ertong@2x.png" alt="1">
+                        <p>适合3-8岁儿童</p>
+                    </li>
+                    <li class="two">
+                        <img src="./images/payFour/10keshi@2x.png" alt="2">
+                        <p>共10课时</p>
+                    </li>
+                    <li class="three">
+                        <img src="./images/payFour/wuxianhuikan.png" alt="3">
+                        <p>无限回看</p>
+                    </li>
+                </ul>
+                <img class="content-img" :src="contentOneImgSrc" alt="3">
+                <img class="content-img" :src="contentTwoImgSrc" alt="4">
+                <img class="content-img" :src="contentThreeImgSrc" alt="5">
+                <!-- <img class="content-img" :src="contentFourImgSrc" alt="6"> -->
+            </div>
+            <!-- 底部 -->
+            <div class="pay-footer">
+                <div class="footer-content">
+                    <div class="footer-price">
+                        <div><span class="price-n">原价¥{{btnNowPrice}}</span></div>
+                        <div><em>新人价立减</em><span class="reduce-price">¥{{btnReducePrice}}</span></div>
+                    </div>
+                    <div class="footer-btn" @click='buyBtn'>
+                        <div>
+                            <em>￥</em><span class="btn-num">{{buyPirce}}</span>
+                        </div>
+                        <div  class="btn-w">
+                            立即购买
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- 弹框 -->
+            <box :box-tip='boxTip' v-if='boxShow'></box>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+    <!-- 弹框组件 -->
+    <script src="./js/box.js"></script>
+    <!-- 页面js -->
+    <script src="./index.js"></script>
+</body>
+
+</html>

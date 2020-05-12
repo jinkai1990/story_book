@@ -1,0 +1,289 @@
+body,
+html {
+    background: #F4F4F4;
+    height: 100%;
+}
+
+.lesson-content {
+    color: #444;
+    font-size: .36rem;
+}
+
+.lesson-type .lesson-t {
+    font-size: .4rem;
+    color: #888;
+    padding: .4rem .36rem;
+}
+
+.lesson-type .lesson-z {
+    background: #fff;
+}
+
+.lesson-z .lesson-k {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EEEEEE;
+    height: 1.2rem;
+    padding-left: .36rem;
+}
+
+.lesson-z .lesson-img {
+    width: .64rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-z .lesson-img img {
+    width: 100%
+}
+
+.lesson-z .lesson-name {
+    margin-left: .45rem;
+}
+
+/* 资源列表 */
+
+.tab-head {
+    list-style-type: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0;
+    overflow: auto;
+    align-items: center;
+    line-height: 1rem;
+    box-sizing: border-box;
+}
+
+.tab-head-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    color: white;
+    padding: 0 .2rem;
+    color: #888;
+    font-size: .3rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.tab-head-item.active {
+    color: #48ADF3
+}
+
+.list-c {
+    margin-top: 6%;
+    background-color: #fff;
+    padding: 0 .35rem;
+    max-height: 89%;
+    overflow: auto;
+}
+
+.list-c ul li {
+    font-size: .3rem;
+    color: #444;
+    margin: .28rem 0;
+    max-height: 2.1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.item-up {
+    display: flex;
+    align-items: center;
+    max-height: 1.8rem;
+    overflow: hidden;
+}
+
+.item-down {
+    height: 1px;
+    width: 100%;
+    margin: .28rem 0;
+    background: #eee;
+}
+
+.list-c ul li img {
+    width: 3.2rem;
+    height: auto;
+    min-height:4rem;
+    margin-right: .3rem;
+    margin-top: 1.3rem;
+}
+
+.box-f {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .6);
+    display: flex;
+    align-items: center;
+}
+
+
+.box {
+    width: 80%;
+    background-color: #fff;
+    border-radius: .3rem;
+    margin: 0 auto;
+}
+
+.box-c {
+    padding: .4rem .3rem;
+    color: #000;
+    font-size: .3rem;
+}
+
+.box-k {
+    color: #5780be;
+}
+
+.box-btn {
+    text-align: center;
+    margin: .3rem 0;
+}
+
+.box-btn .btn {
+    border: 1px solid #3c8feb;
+    width: 2rem;
+    height: .6rem;
+    line-height: .6rem;
+    color: #fff;
+    background-color: #3c8feb;
+    margin-right: .2rem;
+    border-radius: .4rem;
+    font-size: .3rem;
+}
+
+.box-btn .btn.active {
+    color: #3c8feb;
+    background-color: #fff;
+    margin-right: 0;
+    margin-left: .2rem;
+}
+
+.question {
+    width: .7rem;
+    position: fixed;
+    right: .35rem;
+    top: 3.12rem;
+}
+
+.question img {
+    width: 100%;
+}
+
+/* 资源详情 */
+
+.details-header {
+    width: 100%;
+    height: 3.6rem;
+    overflow: hidden;
+}
+
+.lesson-details .details-header-img {
+    width: 100%;
+    height: auto;
+}
+
+.details-title {
+    padding: .4rem .35rem;
+    font-size: .3rem;
+    background: #fff;
+}
+
+.details-content {
+    background: #fff;
+    padding: .35rem;
+    margin-top: .3rem;
+    font-size: .26rem;
+}
+
+.details-content .lesson-i {
+    font-size: .38rem;
+    border-left: .11rem solid #48ADF3;
+    font-weight: bold;
+    padding-left: .2rem;
+    line-height: .4rem;
+}
+
+.details-content .details-l {
+    
+    color: #666;
+    margin-top: .2rem;
+}
+
+.details-content .details-l.active {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.details-all {
+    text-align: center;
+    margin-top: .3rem;
+    color: #48ADF3;
+}
+
+.details-lesson .lesson-one-title {
+    color: #888;
+    font-size: .28rem;
+    margin: .33rem 0 .23rem 0;
+}
+
+
+.lesson-two-name {
+    width: 48%;
+    float: left;
+    border: 1px solid #1FB8FF;
+    border-radius: .38rem;
+    background: rgba(31,184,255,0.1);
+    height: .76rem;
+    line-height: .76rem;
+    color: #48ADF3;
+    font-size: .26rem;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+}
+
+.lesson-two-name.right {
+   margin-right: 2%;
+}
+
+.lesson-two-name.left {
+    margin-left: 2%;
+ }
+
+ .details-header video{
+     width: 100%;
+     height: 3.6rem;
+ }
+
+.target {
+    margin-top: .2rem;
+}
+
+ .target p {
+     color: #666;
+     margin: .1rem 0;
+ }
+
+ .text-indent {
+    text-indent:.3rem
+ }

@@ -1,0 +1,36 @@
+.custom-service {
+    position: fixed;
+    top: 7rem;
+    right: .1rem;
+    z-index: 1000;
+}
+
+.public-good .custom-service img {
+    width: 1.16rem;
+}
+
+.public-good img {
+    width: 100%;
+}
+
+.receive-btn {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: .36rem;
+}
+
+.receive-btn button {
+    font-size: .36rem;
+    width: 6.42rem;
+    height: 1.11rem;
+    line-height: 1.11rem;
+    color: #fff;
+    border-radius: .55rem;
+    background: rgba(255, 108, 50, 1);
+    box-shadow: 0 .11rem .38rem 0 rgba(206, 113, 76, 0.6);
+}
+
+.receive-btn button.active {
+    background:rgba(255,146,103,1)
+}

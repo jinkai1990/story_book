@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>在线备课</title>
+    <link rel="stylesheet" href="https://ybbh5.yunbaobei.com/activity/default/css/base.css">
+    <link rel="stylesheet" href="./lessons.css">
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/adaptive.js'></script>
+    <script src='https://ybbh5.yunbaobei.com/activity/default/js/font.js'></script>
+    <script src="https://ybbh5.oss-cn-hangzhou.aliyuncs.com/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="lesson-content">
+        <div class="lesson-type" v-for='(item, index) in lessonListData' :key='index'>
+            <h1 class="lesson-t">{{item.lessonTitle}}</h1>
+            <div class="lesson-z">
+                <div class="lesson-k" v-for='(lessonList, index) in item.lessonContent' :key='index'
+                    @click='toLessonList(item.lessonId, lessonList.typeId)'>
+                    <div class="lesson-img">
+                        <img :src="lessonList.lessonImg" alt="">
+                    </div>
+                    <p class="lesson-name">{{lessonList.lesoonName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            lessonListData: [{
+                    lessonTitle: '五代',
+                    lessonId: '5', //
+                    lessonContent: [{
+                            lessonImg: '../../images/lessons_imgs/5_tese@3x.png',
+                            lesoonName: '特色课程',
+                            typeId: '5_1'
+                        },
+                        {
+                            lessonImg: '../../images/lessons_imgs/5_zhuti@3x.png',
+                            lesoonName: '主题课程',
+                            typeId: '5_2'
+                        },
+                        {
+                            lessonImg: '../../images/lessons_imgs/5_youxiao@3x.png',
+                            lesoonName: '幼小衔接',
+                            typeId: '5_3'
+                        }
+                    ]
+                },
+                {
+                    lessonTitle: '六代',
+                    lessonId: '6', //
+                    lessonContent: [{
+                            lessonImg: '../../images/lessons_imgs/6_tese@3x.png',
+                            lesoonName: '特色课程',
+                            typeId: '6_1'
+                        },
+                        {
+                            lessonImg: '../../images/lessons_imgs/6_zhuti@3x.png',
+                            lesoonName: '主题课程',
+                            typeId: '6_2'
+                        },
+                        {
+                            lessonImg: '../../images/lessons_imgs/6_youxiao@3x.png',
+                            lesoonName: '幼小衔接',
+                            typeId: '6_3'
+                        }
+                    ]
+                }
+
+
+            ]
+
+        },
+        created: function () { //用于初始化数据
+
+        },
+        mounted() {},
+        methods: { //写方法函数的地方
+            toLessonList(lessonId, typeId) {
+                window.location = './lesson_list.html?lessonId='+lessonId + '&typeId=' + typeId
+            
+
+            }
+
+        },
+
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,132 @@
+body,
+html {
+    background: #fff;
+}
+
+.receive-title-img {
+    position: relative;
+}
+
+.receive-title-img img {
+    width: 100%;
+}
+
+.receive-title-img p {
+    font-size: .5rem;
+    font-weight: 500;
+    color: #333;
+    position: absolute;
+    left: .34rem;
+    bottom: 0;
+}
+
+.info {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 .14rem .38rem 0 rgba(0, 0, 0, 0.1);
+    border-radius: .4rem;
+    height: 5rem;
+    margin: .5rem .34rem;
+}
+
+.login-p {
+    text-align: center;
+}
+
+.login-inpt {
+    display: flex;
+    border-bottom: 2px solid rgba(224, 224, 224, 1);
+    align-items: center;
+    margin-top: .4rem;
+    padding: .15rem .23rem;
+
+}
+
+.login-inpt input {
+    font-size: .3rem;
+    width: 2.92rem;
+}
+
+.login-inpt.active input {
+    width: 4.8rem;
+}
+
+.login-form {
+    padding: .4rem .65rem;
+    position: relative;
+}
+
+.login-inpt .inpt-img {
+    width: .24rem;
+    margin-right: .36rem;
+}
+
+.login-inpt .inpt-img img {
+    width: 100%;
+}
+
+.login-inpt.active .inpt-img {
+    width: .31rem;
+    margin-right: .29rem;
+}
+
+.login-code {
+    width: 2rem;
+    height: .49rem;
+    line-height: .49rem;
+    background: rgba(254, 161, 100, 0);
+    border: 1px solid rgba(154, 187, 240, 1);
+    border-radius: .04rem;
+    font-size: .26rem;
+    color: #7DA9EC;
+    text-align: center;
+}
+
+.time-out {
+    display: none;
+}
+
+.login-btn {
+    width: 5.37rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .36rem;
+    color: #fff;
+    background: rgba(255, 108, 50, 1);
+    border-radius: .51rem;
+}
+
+.btn-s {
+    position: relative;
+    width: 5.37rem;
+    margin: .2rem auto 0;
+}
+
+.loading-img {
+    position: absolute;
+    width: .5rem;
+    left: 50%;
+    top: 50%;
+    margin-left: -.25rem;
+    margin-top: -.25rem;
+    z-index: 1000;
+}
+
+.error-tip {
+    color: red;
+    font-size: .26rem;
+    position: absolute;
+    bottom: 0;
+    left: .65rem;
+    display: none;
+}
+
+.loading {
+    width: 5.37rem;
+    height: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: .51rem;
+    display: none;
+}

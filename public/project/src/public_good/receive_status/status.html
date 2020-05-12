@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../styles/base.css">
+    <link rel="stylesheet" href="./status.css">
+    <!-- 适配各个屏幕 -->
+    <script src='../../../js/adaptive.js'></script>
+    <script src='../../../js/font.js'></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="status">
+        <!-- 领取成功 -->
+        <div class="receive-s" style="display: none;">
+            <div class="logo-img">
+                <img src="../../../images/good_fe/logo@3x.png" alt="">
+            </div>
+            <div class="status-title">恭喜您，领取成功</div>
+            <!-- 放生成的二维码图片 -->
+            <div class="create-wx"></div>
+            <p class="status-tip">请扫码添加专属老师，否则无法上课哦~</p>
+        </div>
+        <!-- 领取失败 -->
+        <div class="receive-s active">
+            <img class="fail-img" src="../../../images/good_fe/quesheng@3x.png" alt="">
+            <p>领取失败，请<span class="retry" onclick="location.reload()">重试</span></p>
+        </div>
+    </div>
+    <script src="https://ybbh5.yunbaobei.com/public/js/jquery-1.8.2.min.js"></script>
+</body>
+</html>

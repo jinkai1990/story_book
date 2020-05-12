@@ -1,0 +1,42 @@
+body, 
+html {
+    background: #4fae8e;
+}
+
+.bady-reading {
+    position: relative;
+    padding-bottom: 2rem;
+}
+.bady-reading .reading-img{
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.reading-b-c {
+    position: fixed;
+    bottom: .7rem;
+    width: 100%;
+    display: none;
+}
+
+.reading-btn {
+    display: flex;
+    align-items: center;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: .3rem;
+    color: #fff;
+    margin-left: .2rem;
+    margin-right: .2rem;
+    background: url('./images/5.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.reading-btn .reading-h {
+    flex: 1;
+    text-align: center;
+}
+
+.reading-btn .reading-h.active {
+   color: #816814;
+}
